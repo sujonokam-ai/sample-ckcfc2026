@@ -1,20 +1,6 @@
 console.log("Script.js berhasil dimuat");
-const tombol = document.getElementById("openInvitation");
 const music = document.getElementById("bgMusic");
 
-const about = document.getElementById("about");
-
-tombol.addEventListener("click", function(){
-
-    about.scrollIntoView({
-
-        behavior:"smooth"
-
-    });
-
-    music.play();
-
-});
 const reveals = document.querySelectorAll(".reveal");
 
 const observer = new IntersectionObserver(function(entries){
@@ -38,6 +24,7 @@ reveals.forEach(function(item){
     observer.observe(item);
 
 });
+
 // ==========================
 // COUNTDOWN
 // ==========================
@@ -105,9 +92,6 @@ function updateCountdown() {
 updateCountdown();
 
 timer = setInterval(updateCountdown, 1000);
-// ==========================
-// SWIPER GALLERY
-// ==========================
 
 // ==========================
 // SWIPER GALLERY
@@ -179,7 +163,13 @@ const gallerySwiper = new Swiper(".myGallery", {
 const enterButton = document.getElementById("enterInvitation");
 const openingScreen = document.getElementById("openingScreen");
 
+console.log("enterButton =", enterButton);
+console.log("openingScreen =", openingScreen);
+console.log("music =", music);
+
 enterButton.addEventListener("click", function () {
+
+    console.log("Tombol diklik");
 
     music.play();
 
