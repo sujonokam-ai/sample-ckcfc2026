@@ -33,7 +33,7 @@ function formatNumber(number) {
     return String(number).padStart(2, "0");
 }
 
-const targetDate = new Date("2026-10-15T07:00:00");
+const targetDate = new Date("2026-10-22T07:00:00");
 
 let timer;
 
@@ -77,7 +77,7 @@ function updateCountdown() {
         1000
     );
 
-    document.getElementById("days").textContent = days;
+    document.getElementById("days").textContent = formatNumber(days);
     document.getElementById("hours").textContent = formatNumber(hours);
     document.getElementById("minutes").textContent = formatNumber(minutes);
     document.getElementById("seconds").textContent = formatNumber(seconds);
@@ -97,7 +97,60 @@ timer = setInterval(updateCountdown, 1000);
 // SWIPER GALLERY
 // ==========================
 
-const gallerySwiper = new Swiper(".myGallery", {
+const guideSwiper = new Swiper(".guideSwiper",{
+
+    loop: false,
+
+    speed: 700,
+
+    grabCursor: true,
+
+    centeredSlides: true,
+
+    slidesPerView: 1.2,
+
+    spaceBetween: 20,
+
+    effect: "coverflow",
+
+    coverflowEffect: {
+
+        rotate: 20,
+
+        stretch: 0,
+
+        depth: 120,
+
+        modifier: 1,
+
+        slideShadows: false,
+
+        scale: 0.9
+
+    },
+
+    pagination: {
+    el: ".guide .swiper-pagination",
+    clickable: true,
+},
+
+    navigation: {
+    nextEl: ".guide .swiper-button-next",
+    prevEl: ".guide .swiper-button-prev",
+},
+
+    breakpoints: {
+
+        768: {
+
+            slidesPerView: 2.2
+
+        }
+
+    }
+
+});
+const historySwiper = new Swiper(".historySwiper", {
 
     loop: false,
 
@@ -131,7 +184,7 @@ const gallerySwiper = new Swiper(".myGallery", {
 
     pagination: {
 
-        el: ".swiper-pagination",
+        el: ".history .swiper-pagination",
 
         clickable: true,
 
@@ -139,9 +192,9 @@ const gallerySwiper = new Swiper(".myGallery", {
 
     navigation: {
 
-        nextEl: ".swiper-button-next",
+        nextEl: ".history .swiper-button-next",
 
-        prevEl: ".swiper-button-prev",
+        prevEl: ".history .swiper-button-prev",
 
     },
 
@@ -156,6 +209,7 @@ const gallerySwiper = new Swiper(".myGallery", {
     }
 
 });
+
 // ==========================
 // OPENING SCREEN
 // ==========================
@@ -307,7 +361,7 @@ counters.forEach(function(counter){
 // LIGHTBOX
 // ==========================
 
-const galleryImages = document.querySelectorAll(".swiper-slide img");
+const swiperImages = document.querySelectorAll(".swiper-slide img");
 
 const lightbox = document.getElementById("lightbox");
 
@@ -315,7 +369,7 @@ const lightboxImage = document.getElementById("lightboxImage");
 
 const closeLightbox = document.querySelector(".close-lightbox");
 
-galleryImages.forEach(function(img){
+swiperImages.forEach(function(img){
 
     img.addEventListener("click", function(){
 
@@ -338,6 +392,54 @@ lightbox.addEventListener("click", function(e){
     if(e.target === lightbox){
 
         lightbox.style.display = "none";
+
+    }
+
+});
+// ==========================
+// VIDEO MODAL
+// ==========================
+
+const thumbnails =
+document.querySelectorAll(".video-thumbnail");
+
+const videoModal =
+document.getElementById("videoModal");
+
+const videoFrame =
+document.getElementById("videoFrame");
+
+const closeVideo =
+document.querySelector(".close-video");
+
+thumbnails.forEach(function(item){
+
+    item.addEventListener("click",function(){
+
+        videoModal.classList.add("show");
+
+        videoFrame.src =
+        this.dataset.video + "?autoplay=1";
+
+    });
+
+});
+
+closeVideo.addEventListener("click",function(){
+
+    videoModal.style.display="none";
+
+    videoFrame.src="";
+
+});
+
+videoModal.addEventListener("click",function(e){
+
+    if(e.target===videoModal){
+
+        videoModal.classList.remove("show");
+
+        videoFrame.src="";
 
     }
 

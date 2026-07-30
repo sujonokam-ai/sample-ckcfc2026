@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
 
 <meta charset="UTF-8">
@@ -17,17 +17,17 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 </head>
 <body>
 
-// =====================================================
-// OPENING SCREEN
-// =====================================================
+<!-- ===================================================== -->
+<!-- OPENING SCREEN -->
+<!-- ===================================================== -->
 <div id="openingScreen" class="opening-screen">
 
     <div class="opening-content">
 
         <img
-            src="images/logo.png"
-            class="opening-logo"
-            alt="Logo CKC">
+        src="images/logo.png"
+        class="logo"
+        alt="Cemara Kenchi Club Logo">
 
         <h1>
 
@@ -79,6 +79,49 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <p>📍 GOR PBSI</p>
 
 </div>
+<div class="countdown-box fade-up">
+
+    <h3>Tournament Starts In</h3>
+
+    <p id="countdownMessage"></p>
+
+    <div id="countdown">
+
+        <div class="time-box">
+
+            <span id="days">00</span>
+
+            <small>Days</small>
+
+        </div>
+
+        <div class="time-box">
+
+            <span id="hours">00</span>
+
+            <small>Hours</small>
+
+        </div>
+
+        <div class="time-box">
+
+            <span id="minutes">00</span>
+
+            <small>Minutes</small>
+
+        </div>
+
+        <div class="time-box">
+
+            <span id="seconds">00</span>
+
+            <small>Seconds</small>
+
+        </div>
+
+    </div>
+
+</div>
 </section>
 
 <!-- ===================================================== -->
@@ -86,7 +129,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <!-- ===================================================== -->
 <section id="about" class="about">
 
-    <h2>About Tournament</h2>
+    <h2>Tentang CKC Friendship Cup</h2>
 
     <p class="section-description">
 
@@ -143,7 +186,7 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 <!-- ===================================================== -->
 <section id="categories" class="categories reveal">
 
-    <h2>Tournament Categories</h2>
+    <h2>Kategori Peserta</h2>
     <p class="section-description">
 
 Peserta akan dibagi ke dalam 2 kategori
@@ -193,69 +236,97 @@ berdasarkan pengalaman bermain dan penilaian panitia.
     </div>
 
 </section>
-
 <!-- ===================================================== -->
-<!-- TOURNAMENT STATISTICS -->
+<!-- TOURNAMENT REGISTRATION STATUS -->
 <!-- ===================================================== -->
-<section id="statistics" class="statistics reveal">
 
-    <h2>Tournament Statistics</h2>
+<section id="registration-status" class="registration-status reveal">
 
-<p class="section-description">
+    <h2>🏆 Tournament Registration Status</h2>
 
-    Statistik penyelenggaraan CKC Friendship Cup 2026
-    yang memberikan gambaran jumlah peserta,
-    kategori pertandingan, dan skala turnamen.
+    <p class="section-description">
+        Pantau perkembangan kuota peserta untuk setiap kategori pertandingan.
+    </p>
 
-</p>
+    <div class="quota-wrapper">
 
-<div class="statistics-grid">
-    <div class="statistics-grid">
+        <!-- SENIOR -->
 
-        <div class="statistics-card">
+        <div class="quota-card">
 
-            <h3 class="counter" data-target="16">0</h3>
+            <h3>🏸 Senior Category</h3>
 
-            <p>Club Peserta</p>
+            <div class="quota-number">
+
+                <span class="registered">48</span>
+                <span class="divider">/</span>
+                <span class="quota">64</span>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div class="progress-fill progress-75"></div>
+
+            </div>
+
+            <p class="quota-status open">
+
+                🟢 Registration Open
+
+            </p>
+
+            <small>Remaining 16 Slots</small>
 
         </div>
 
-        <div class="statistics-card">
+        <!-- JUNIOR -->
 
-            <h3 class="counter" data-target="240">0</h3>
+        <div class="quota-card">
 
-            <p>Atlet</p>
+            <h3>🏸 Junior Category</h3>
 
-        </div>
+            <div class="quota-number">
 
-        <div class="statistics-card">
+                <span class="registered">30</span>
+                <span class="divider">/</span>
+                <span class="quota">32</span>
 
-            <h3 class="counter" data-target="12">0</h3>
+            </div>
 
-            <p>Kategori</p>
+            <div class="progress-bar">
 
-        </div>
+                <div class="progress-fill progress-94"></div>
 
-        <div class="statistics-card">
+            </div>
 
-            <h3 class="counter" data-target="3">0</h3>
+            <p class="quota-status almost">
 
-            <p>Hari Pertandingan</p>
+                🟡 Almost Full
+
+            </p>
+
+            <small>Remaining 2 Slots</small>
 
         </div>
 
     </div>
 
 </section>
-
 <!-- ===================================================== -->
-<!-- TOURNAMENT GUIDE -->
+<!-- PARTICIPANT GUIDE -->
 <!-- ===================================================== -->
 <section id="guide" class="guide reveal">
 
-    <h2>📘 Participant Guide</h2>
+    <h2>📘 Panduan Peserta</h2>
 
-    <p class="guide-subtitle">
+   <p class="section-description">
+
+    Geser ke kiri atau kanan
+    untuk melihat seluruh informasi penting
+    yang wajib diketahui peserta turnamen.
+
+</p>
 
         Geser ke kiri atau kanan untuk melihat
         seluruh informasi penting peserta.
@@ -319,7 +390,7 @@ berdasarkan pengalaman bermain dan penilaian panitia.
 
         <h2>
 
-            📝 Ready to Join?
+        📝 Ready to Join CKC Friendship Cup 2026?
 
         </h2>
 
@@ -346,162 +417,114 @@ berdasarkan pengalaman bermain dan penilaian panitia.
 </section>
 
 <!-- ===================================================== -->
-<!-- SCHEDULE -->
+<!-- TOURNAMENT SCHEDULE -->
 <!-- ===================================================== -->
-<section id="schedule" class="schedule">
 
-    <h2>Jadwal Acara</h2>
+<section id="schedule" class="schedule reveal">
 
-    <!-- ==========================
-         HARI PERTAMA
-    =========================== -->
+    <h2>📅 Tournament Schedule</h2>
 
-    <div class="schedule-day">
+    <p class="section-description">
 
-        <h3 class="day-title">
+        Jadwal kegiatan CKC Friendship Cup 2026.
+        Seluruh peserta diharapkan hadir tepat waktu
+        sesuai dengan agenda yang telah ditentukan.
 
-            📅 Hari Pertama
+    </p>
 
-        </h3>
+    <div class="timeline">
 
-        <p class="day-date">
+        <!-- DAY 1 -->
+        <div class="timeline-day">
 
-            Kamis, 15 Oktober 2026
-
-        </p>
-
-        <div class="schedule-list">
-
-            <div class="schedule-item reveal">
-
-                <div class="schedule-time">
-                    07.00
-                </div>
-
-                <div class="schedule-content">
-
-                    <h4>Registrasi Peserta</h4>
-
-                    <p>
-                        Registrasi ulang dan pembagian nomor pertandingan.
-                    </p>
-
-                </div>
-
+            <div class="day-title">
+                🏆 Day 1
+                <span>22 Oktober 2026</span>
             </div>
 
-            <div class="schedule-item reveal">
-
-                <div class="schedule-time">
-                    07.45
-                </div>
-
-                <div class="schedule-content">
-
-                    <h4>Opening Ceremony</h4>
-
-                    <p>
-                        Sambutan panitia dan pembukaan turnamen.
-                    </p>
-
-                </div>
-
+            <div class="timeline-item">
+                <div class="time">07.30</div>
+                <div class="activity">Registrasi Peserta</div>
             </div>
 
-           <div class="schedule-item reveal">
+            <div class="timeline-item">
+                <div class="time">08.30</div>
+                <div class="activity">Technical Meeting</div>
+            </div>
 
-                <div class="schedule-time">
-                    08.00
-                </div>
+            <div class="timeline-item">
+                <div class="time">09.00</div>
+                <div class="activity">Opening Ceremony</div>
+            </div>
 
-                <div class="schedule-content">
+            <div class="timeline-item">
+                <div class="time">09.30</div>
+                <div class="activity">Pertandingan Babak Penyisihan</div>
+            </div>
 
-                    <h4>Babak Penyisihan</h4>
-
-                    <p>
-                        Seluruh kategori memulai pertandingan.
-                    </p>
-
-                </div>
-
+            <div class="timeline-item">
+                <div class="time">18.00</div>
+                <div class="activity">Pertandingan Hari Pertama Selesai</div>
             </div>
 
         </div>
 
-    </div>
+        <!-- DAY 2 -->
+        <div class="timeline-day">
 
-    <!-- ==========================
-         HARI KEDUA
-    =========================== -->
-
-    <div class="schedule-day">
-
-        <h3 class="day-title">
-
-            📅 Hari Kedua
-
-        </h3>
-
-        <p class="day-date">
-
-            Jumat, 23 Oktober 2026
-
-        </p>
-
-        <div class="schedule-list">
-
-            <div class="schedule-item">
-
-                <div class="schedule-time">
-                    08.00
-                </div>
-
-                <div class="schedule-content">
-
-                    <h4>Babak Semi Final</h4>
-
-                    <p>
-                        Pertandingan semifinal seluruh kategori.
-                    </p>
-
-                </div>
-
+            <div class="day-title">
+                🥈 Day 2
+                <span>23 Oktober 2026</span>
             </div>
 
-            <div class="schedule-item">
-
-                <div class="schedule-time">
-                    13.00
-                </div>
-
-                <div class="schedule-content">
-
-                    <h4>Babak Final</h4>
-
-                    <p>
-                        Penentuan juara setiap kategori.
-                    </p>
-
-                </div>
-
+            <div class="timeline-item">
+                <div class="time">08.00</div>
+                <div class="activity">Pertandingan Dilanjutkan</div>
             </div>
 
-            <div class="schedule-item">
+            <div class="timeline-item">
+                <div class="time">12.00</div>
+                <div class="activity">Istirahat</div>
+            </div>
 
-                <div class="schedule-time">
-                    16.30
-                </div>
+            <div class="timeline-item">
+                <div class="time">13.00</div>
+                <div class="activity">Babak Perempat Final & Semifinal</div>
+            </div>
 
-                <div class="schedule-content">
+            <div class="timeline-item">
+                <div class="time">18.00</div>
+                <div class="activity">Pertandingan Hari Kedua Selesai</div>
+            </div>
 
-                    <h4>Award Ceremony</h4>
+        </div>
 
-                    <p>
-                        Penyerahan piala, medali, dan foto bersama.
-                    </p>
+        <!-- DAY 3 -->
+        <div class="timeline-day">
 
-                </div>
+            <div class="day-title">
+                🥇 Day 3
+                <span>24 Oktober 2026</span>
+            </div>
 
+            <div class="timeline-item">
+                <div class="time">09.00</div>
+                <div class="activity">Final Seluruh Kategori</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">13.00</div>
+                <div class="activity">Awarding Ceremony</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">14.00</div>
+                <div class="activity">Foto Bersama</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="time">15.00</div>
+                <div class="activity">Penutupan Turnamen</div>
             </div>
 
         </div>
@@ -525,15 +548,16 @@ berdasarkan pengalaman bermain dan penilaian panitia.
         Medan, Sumatera Utara
     </p>
 
-<div class="map-container">
+    <div class="map-container">
 
-    <iframe
-        src="https://www.google.com/maps?q=Monas%20Jakarta&output=embed"
-        loading="lazy"
-        allowfullscreen>
-    </iframe>
+        <iframe
+            title="Lokasi CKC Friendship Cup 2026"
+            src="https://www.google.com/maps?q=Monas%20Jakarta&output=embed"
+            loading="lazy"
+            allowfullscreen>
+        </iframe>
 
-</div>
+    </div>
 
     <a
         href="https://maps.google.com"
@@ -545,7 +569,142 @@ berdasarkan pengalaman bermain dan penilaian panitia.
     </a>
 
 </section>
+<!-- ===================================================== -->
+<!-- PREVIOUS TOURNAMENT GALLERY -->
+<!-- ===================================================== -->
 
+<section id="history" class="history reveal">
+
+    <h2>🏆 Dokumentasi Turnamen CKC</h2>
+
+    <p class="section-description">
+        Dokumentasi momen terbaik yang penuh sportivitas, persahabatan, dan kebersamaan dari CKC Friendship Cup sebelumnya.
+    </p>
+
+    <div class="swiper historySwiper">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+                <img src="images/history/history1.jpg" alt="History 1">
+            </div>
+
+            <div class="swiper-slide">
+                <img src="images/history/history2.jpg" alt="History 2">
+            </div>
+
+            <div class="swiper-slide">
+                <img src="images/history/history3.jpg" alt="History 3">
+            </div>
+
+            <div class="swiper-slide">
+                <img src="images/history/history4.jpg" alt="History 4">
+            </div>
+
+        </div>
+
+        <div class="swiper-pagination"></div>
+
+        <div class="swiper-button-prev"></div>
+
+        <div class="swiper-button-next"></div>
+
+    </div>
+
+</section>
+<!-- ===================================================== -->
+<!-- TOURNAMENT HIGHLIGHTS -->
+<!-- ===================================================== -->
+
+<section id="highlights" class="highlights reveal">
+
+    <h2>🎬 Tournament Highlights</h2>
+
+    <p class="section-description">
+        Saksikan kembali momen-momen terbaik, pertandingan spektakuler,
+        dan semangat sportivitas dari CKC Friendship Cup.
+    </p>
+
+    <div class="highlight-grid">
+
+        <div class="highlight-card">
+
+            <div class="video-thumbnail"
+                data-video="https://www.youtube.com/embed/VIDEO_ID_1">
+
+                <img
+                    src="https://img.youtube.com/vi/VIDEO_ID_1/hqdefault.jpg"
+                    alt="Opening Ceremony">
+
+                <div class="play-button">
+
+                    <span>▶</span>
+
+                </div>
+
+            </div>
+
+            <h3>Opening Ceremony</h3>
+
+            <p>
+                Suasana pembukaan dan kemeriahan peserta.
+            </p>
+
+        </div>
+
+        <div class="highlight-card">
+
+            <div class="video-thumbnail"
+                data-video="https://www.youtube.com/embed/VIDEO_ID_2">
+
+                <img
+                    src="https://img.youtube.com/vi/VIDEO_ID_2/hqdefault.jpg"
+                    alt="Opening Ceremony">
+
+                 <div class="play-button">
+
+                    <span>▶</span>
+
+                 </div>
+
+            </div>
+
+            <h3>Best Rally</h3>
+
+            <p>
+                Rally terbaik sepanjang turnamen.
+            </p>
+
+        </div>
+
+        <div class="highlight-card">
+
+            <div class="video-thumbnail"
+                 data-video="https://www.youtube.com/embed/VIDEO_ID_3">
+
+                 <img
+                    src="https://img.youtube.com/vi/VIDEO_ID_3/hqdefault.jpg"
+                     alt="Opening Ceremony">
+
+                <div class="play-button">
+
+                <span>▶</span>
+
+                </div>
+
+            </div>
+
+            <h3>Grand Final</h3>
+
+            <p>
+                Pertandingan final yang menegangkan.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
 <!-- ===================================================== -->
 <!-- LIGHTBOX -->
 <!-- ===================================================== -->
@@ -556,53 +715,7 @@ berdasarkan pengalaman bermain dan penilaian panitia.
     <img id="lightboxImage" src="" alt="Gallery">
 
 </div>
-<section class="countdown">
 
-    <h2>Hitung Mundur</h2>
-
-    <p class="countdown-subtitle">
-
-        Menuju CKC Friendship Cup 2026
-
-    </p>
-
-    <div class="countdown-wrapper">
-
-        <div class="count-box">
-
-            <span id="days">00</span>
-
-            <p>Hari</p>
-
-        </div>
-
-        <div class="count-box">
-
-            <span id="hours">00</span>
-
-            <p>Jam</p>
-
-        </div>
-
-        <div class="count-box">
-
-            <span id="minutes">00</span>
-
-            <p>Menit</p>
-
-        </div>
-
-        <div class="count-box">
-
-            <span id="seconds">00</span>
-
-            <p>Detik</p>
-
-        </div>
-
-    </div>
-
-</section>
 
 <!-- ===================================================== -->
 <!-- SPONSORS -->
@@ -638,15 +751,22 @@ berdasarkan pengalaman bermain dan penilaian panitia.
 <!-- ===================================================== -->
 <nav class="floating-nav">
 
-    <a href="#" title="Home">🏠</a>
-    <a href="#categories" title="Kategori">🏆</a>  
+    <a href="#hero" title="Home">🏠</a>
+
     <a href="#guide" title="Participant Guide">📘</a>
+
     <a href="#schedule" title="Jadwal">📅</a>
-    <a href="#register" title="Register">📝</a>
+
+    <a href="#register" title="Pendaftaran">📝</a>
+
     <a href="#location" title="Lokasi">📍</a>
-    <a href="#footer" title="Kontak">📞</a>
+
+    <a href="#history" title="Gallery">📷</a>
+
+    <a href="#footer" title="Informasi">📞</a>
 
 </nav>
+
 <audio id="bgMusic" loop>
 
     <source src="audio/background.mp3" type="audio/mpeg">
@@ -659,41 +779,54 @@ berdasarkan pengalaman bermain dan penilaian panitia.
 <!-- ===================================================== -->
 <!-- FOOTER -->
 <!-- ===================================================== -->
-<footer id="footer" class="footer">
 
-    <h2>CKC FRIENDSHIP CUP 2026</h2>
+<footer class="footer">
 
-    <p class="footer-club">
-        Cemara Kenchi Club
-    </p>
+    <footer id="footer" class="footer">
 
-    <div class="footer-contact">
+        <img src="images/logo.png" class="footer-logo" alt="CKC Logo">
 
-        <p>📞 ASAN KIE</p>
-        <p>0853 7686 6333</p>
+        <h3>Cemara Kenchi Club</h3>
 
-        <p>📧 cekace@gmail.com</p>
-        <p>info@ckc.com</p>
+        <p>
+            Bersatu Dalam Persahabatan,
+            Satu Komunitas,
+            Satu Semangat.
+        </p>
 
-        <p>📷 Instagram</p>
-        <p>@cemarakenchiclub</p>
+        <div class="footer-divider"></div>
+
+        <small>
+            © 2026 Cemara Kenchi Club.
+            All Rights Reserved.
+        </small>
 
     </div>
 
-    <hr>
-
-    <p class="copyright">
-
-        © 2026 Cemara Kenchi Club
-
-        <br>
-
-        All Rights Reserved
-
-    </p>
-
 </footer>
+<!-- ======================================= -->
+<!-- VIDEO MODAL -->
+<!-- ======================================= -->
 
+<div id="videoModal" class="video-modal">
+
+    <div class="video-modal-content">
+
+        <span class="close-video">
+            &times;
+        </span>
+
+        <iframe
+
+            id="videoFrame"
+
+            allowfullscreen>
+
+        </iframe>
+
+    </div>
+
+</div>
 </body>
 
 </html>

@@ -1,11 +1,158 @@
-body{
+/* ==========================
+   GLOBAL
+========================== */
+*{
     margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+html{
+
+    scroll-behavior:smooth;
+
+}
+body{
+
     font-family:Arial,sans-serif;
+
+}
+a{
+
+    text-decoration:none;
+
+}
+/*--- IMAGE ---*/
+img{
+    max-width:100%;
+    height:auto;
+}
+/*--- BUTTON ---*/
+button{
+    padding:15px 35px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+
+}
+.btn-primary{
+
+    background:#e4b013;
+    color:#0B1F3A;
+    padding:16px 32px;
+    min-width:220px;
+    border:none;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+
+}
+.btn-primary:hover{
+
+    background:#edd58c;
+
+    transform:scale(1.05);
+
 }
 
-.cover{
+.btn-primary:active{
+
+    transform:scale(.95);
+
+}
+
+/* ==========================
+   OPENING SCREEN
+========================== */
+
+.opening-screen{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
     width:100%;
+
     height:100vh;
+
+    background:#0B1F3A;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:9999;
+
+}
+.opening-content{
+
+    position:relative;
+
+    z-index:10000;
+
+    text-align:center;
+
+    color:white;
+
+    padding:30px;
+
+}
+.opening-logo{
+
+    width:140px;
+
+    margin-bottom:30px;
+
+}
+.opening-content h1{
+
+    font-size:40px;
+
+    margin-bottom:20px;
+
+}
+.opening-content p{
+
+    max-width:500px;
+
+    margin:0 auto 40px;
+
+    line-height:1.8;
+
+    color:#ddd;
+
+}
+/* =====================================================
+   HERO
+===================================================== */
+.cover{
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:40px 20px;
+
+    color:#ffffff;
+
+    position:relative;
+
     overflow:hidden;
 
     background-image:
@@ -16,65 +163,23 @@ body{
         url("images/poster.jpg");
 
     background-size:cover;
+
     background-position:center;
+
     background-repeat:no-repeat;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    color:white;
-    padding:20px;
-    box-sizing:border-box;
-     transition:background-position .1s linear;
-}
-button{
-    padding:15px 35px;
-    font-size:18px;
-    border:none;
-    border-radius:30px;
-    cursor:pointer;
-    margin-bottom:20px;
+
+    transition:background-position .15s linear;
+
 }
 .logo{
+
     width:180px;
     height:auto;
-    margin-bottom:1px;
-    line-height:0.5;
+
+    margin:0 auto;
+
 }
-.about{
-    padding:60px 20px;
-    background:white;
-    color:black;
-    text-align:center;
-}
-.schedule{
-    padding:60px 20px;
-    background:#f4f4f4;
-    text-align:center;
-}
-.overlay{
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,.45);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-}
-.btn-primary{
-    background:#FFD700;
-    color:#111;
-    padding:15px 35px;
-    border-radius:50px;
-    border:none;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-}
-.btn-primary:hover{
-    background:#edd58c;
-}
+
 .club-name{
     font-size:clamp(32px,6vw,48px);
     color:#b4f83e;
@@ -85,61 +190,23 @@ button{
     font-size:clamp(30px,4vw,34px);
     color:#fbff00;
     margin-bottom:10px;
-    line-height:0.5;
+    line-height:1.3;
 }
 .tagline{
     font-size:clamp(15px,2.5vw,20px);
     color:#f3f3f2;
     font-style:italic;
     margin-bottom:10px;
-    line-height:0.5;
+    line-height:1.2;
 }
 .info-area{
     font-size:clamp(25px,2.5vw,20px);
     color:#f3f3f2;
     font-style:BOLD;
     margin-bottom:10px;
-    line-height:0.6;
-}
-/* ==========================
-   PRIMARY BUTTON
-========================== */
-
-.btn-primary{
-
-    background:#e4b013;
-
-    color:#0B1F3A;
-
-    font-size:18px;
-
-    font-weight:bold;
-
-    padding:16px 32px;
-    min-width: 220px;
-
-    border:none;
-
-    border-radius:50px;
-
-    cursor:pointer;
-
-    margin-top:20px;
-
-    transition:0.3s;
+    line-height:1.2;
 }
 
-.btn-primary:hover{
-
-    transform:scale(1.05);
-
-}
-
-.btn-primary:active{
-
-    transform:scale(0.95);
-
-}
 .club-name,
 .event-name,
 .tagline,
@@ -149,13 +216,91 @@ button{
         2px 2px 8px rgba(0,0,0,.7);
 
 }
-html{
+/* ==============================
+   HERO COUNTDOWN
+================================ */
 
-    scroll-behavior:smooth;
+.countdown-box{
+
+    margin-top:40px;
+
+    text-align:center;
+
+}
+
+.countdown-box h3{
+
+    color:#FFD700;
+
+    font-size:20px;
+
+    margin-bottom:20px;
+
+    font-weight:600;
+
+}
+
+#countdown{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+#countdownMessage{
+
+    height:24px;
+
+    margin-bottom:18px;
+
+    color:#FFD700;
+
+    font-weight:600;
+
+}
+.time-box{
+
+    width:90px;
+
+    padding:16px 10px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.12);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,.18);
+
+}
+
+.time-box span{
+
+    display:block;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:#FFD700;
+
+}
+
+.time-box small{
+
+    color:white;
+
+    font-size:13px;
+
+    letter-spacing:.5px;
 
 }
 /* ==========================
-   FADE UP ANIMATION
+   ANIMATION
 ========================== */
 
 .fade-up{
@@ -169,8 +314,12 @@ html{
 }
 .logo-area{
 
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
     animation-delay:.2s;
-    margin-bottom:24px;  
+    margin-bottom:24px;
 
 }
 
@@ -212,15 +361,36 @@ html{
     }
 
 }
-/* ==========================
-   ABOUT SECTION
-========================== */
+/* === SCROLL REVEAL === */
 
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:all .8s ease;
+
+}
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* ==========================
+   ABOUT TOURNAMENT
+========================== */
 .about{
 
     background:#F5F7FA;
 
     padding:80px 24px;
+
+    color:#111;
 
     text-align:center;
 
@@ -286,42 +456,319 @@ html{
     line-height:1.7;
 
 }
+
 /* ==========================
-   TABLET
+   TOURNAMENT CATEGORIES
 ========================== */
 
-@media (min-width:768px){
+.categories{
 
-    .about{
+    padding:90px 20px;
 
-        padding:100px 60px;
+    background:#F5F8FC;
 
-    }
+    text-align:center;
 
-    .feature-list{
+}
 
-        flex-direction:row;
+.categories h2{
 
-    }
+    color:#0B1F3A;
 
-    .feature-item{
+    margin-bottom:50px;
 
-        flex:1;
+}
 
-    }
+.category-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:30px;
+
+}
+
+.category-card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:22px;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.category-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+
+}
+
+.category-icon{
+
+    font-size:52px;
+
+    margin-bottom:20px;
+
+}
+
+.category-card h3{
+
+    color:#0B1F3A;
+
+    margin-bottom:15px;
+
+}
+
+.category-card p{
+
+    color:#666;
+
+    line-height:1.7;
+
+}
+/* ==============================
+   TOURNAMENT REGISTRATION STATUS
+================================ */
+
+.registration-status{
+
+    padding:100px 24px;
+
+    background:#F5F7FA;
+
+    text-align:center;
+
+}
+
+.registration-status h2{
+
+    font-size:34px;
+
+    color:#0B1F3A;
+
+    margin-bottom:20px;
+
+}
+
+.quota-wrapper{
+
+    max-width:900px;
+
+    margin:50px auto 0;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+
+    gap:30px;
+
+}
+
+.quota-card{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.quota-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.quota-card h3{
+
+    font-size:26px;
+
+    color:#0B1F3A;
+
+    margin-bottom:25px;
+
+}
+
+.quota-number{
+
+    font-size:52px;
+
+    font-weight:700;
+
+    color:#D4AF37;
+
+    margin-bottom:25px;
+
+}
+
+.divider{
+
+    color:#999;
+
+    margin:0 8px;
+
+}
+
+.progress-bar{
+
+    width:100%;
+
+    height:16px;
+
+    background:#E4E4E4;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    margin-bottom:20px;
+
+}
+
+.progress-fill{
+
+    height:100%;
+
+    border-radius:30px;
+
+}
+
+.progress-75{
+
+    width:75%;
+
+    background:#3CB371;
+
+}
+
+.progress-94{
+
+    width:94%;
+
+    background:#F4B400;
+
+}
+.quota-status{
+
+    font-size:18px;
+
+    font-weight:600;
+
+    margin-bottom:10px;
+
+}
+
+.quota-status.open{
+
+    color:#2E8B57;
+
+}
+
+.quota-status.almost{
+
+    color:#D48806;
+
+}
+
+.quota-card small{
+
+    color:#666;
+
+    font-size:15px;
+
+}
+
+/* ==========================
+   REGISTRATION
+========================== */
+
+.register{
+
+    padding:90px 20px;
+
+    background:#0B1F3A;
+
+    text-align:center;
+
+}
+
+.register-content{
+
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+.register h2{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    color:#ffffff;
+
+    margin-bottom:20px;
+
+}
+
+.register p{
+
+    color:#d9d9d9;
+
+    line-height:1.8;
+
+    margin-bottom:40px;
+
+}
+
+.register-button{
+
+    display:inline-block;
+
+    padding:18px 40px;
+
+    border-radius:50px;
+
+    background:#D4AF37;
+
+    color:#0B1F3A;
+
+    text-decoration:none;
+
+    font-weight:700;
+
+    transition:all .3s ease;
+
+}
+
+.register-button:hover{
+
+    transform:translateY(-4px);
 
 }
 /* ==========================
-   SCHEDULE
+   TOURNAMENT SCHEDULE
 ========================== */
-
 .schedule{
-
-    background:#ffffff;
-
     padding:80px 24px;
-
+    background:#ffffff;
+    text-align:center;
 }
+
 .schedule h2{
 
     text-align:center;
@@ -411,7 +858,6 @@ html{
     line-height:1.6;
 
     margin-bottom:0;
-    margin-left:20px;
 
 }
 .schedule-list{
@@ -456,104 +902,87 @@ html{
 
 }
 /* ==========================
-   SCROLL REVEAL
+   TOURNAMENT LOCATION
 ========================== */
 
-.reveal{
+.location{
 
-    opacity:0;
+    padding:100px 24px;
 
-    transform:translateY(40px);
-
-    transition:all .8s ease;
-
-}
-
-.reveal.active{
-
-    opacity:1;
-
-    transform:translateY(0);
-
-}
-/* ==========================
-   COUNTDOWN
-========================== */
-
-.countdown{
-
-    padding:80px 24px;
-
-    background:#0B1F3A;
-
-    color:white;
+    background:#F5F7FA;
 
     text-align:center;
 
 }
-.countdown h2{
 
-    font-size:34px;
+.location h2{
 
-    margin-bottom:15px;
+    font-size:32px;
 
-}
-.countdown-subtitle{
-
-    color:#ddd;
-
-    margin-bottom:50px;
-
-}
-.countdown-wrapper{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:20px;
-
-    flex-wrap:wrap;
-
-}
-.count-box{
-
-    background:white;
+    font-weight:700;
 
     color:#0B1F3A;
 
-    width:120px;
+    margin-bottom:20px;
 
-    padding:25px;
+}
+
+.location-name{
+
+    font-size:24px;
+
+    font-weight:700;
+
+    color:#0B1F3A;
+
+    margin-bottom:10px;
+
+}
+
+.location-address{
+
+    color:#666;
+
+    margin-bottom:40px;
+
+}
+
+/* ==========================
+   GOOGLE MAP
+========================== */
+
+.map-container{
+
+    width:100%;
+
+    max-width:900px;
+
+    height:420px;
+
+    margin:0 auto 40px;
 
     border-radius:20px;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    overflow:hidden;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.10);
 
 }
-.count-box span{
 
-    display:block;
+.map-container iframe{
 
-    font-size:42px;
+    width:100%;
 
-    font-weight:bold;
+    height:100%;
 
-    color:#e4b013;
-
-}
-.count-box p{
-
-    margin-top:10px;
-
-    font-size:16px;
+    border:0;
 
 }
-/* ==========================
-   GALLERY
-========================== */
+/* ===============================
+   PARTICIPANT GUIDE
+================================== */
 
-.gallery{
+.guide{
 
     padding:100px 24px;
 
@@ -562,55 +991,37 @@ html{
     text-align:center;
 
 }
+/* ==============================
+   PREVIOUS TOURNAMENT
+================================ */
 
-.gallery h2{
+.history{
 
-    font-size:32px;
+    padding:100px 24px;
+
+    background:#ffffff;
+
+    text-align:center;
+
+}
+/* ==============================
+   GUIDE & HISTORY SWIPER
+================================ */
+.guide h2,
+.history h2{
+
+    font-size:34px;
+
+    font-weight:700;
 
     color:#0B1F3A;
 
-    margin-bottom:40px;
+    margin-bottom:50px;
 
 }
 
-.gallery-wrapper{
-
-    display:grid;
-
-    grid-template-columns:1fr;
-
-    gap:20px;
-
-    max-width:900px;
-
-    margin:auto;
-
-}
-
-.gallery-wrapper img{
-
-    width:100%;
-
-    border-radius:20px;
-
-    display:block;
-
-    box-shadow:0 10px 30px rgba(0,0,0,.15);
-
-    transition:.3s;
-
-}
-
-.gallery-wrapper img:hover{
-
-    transform:scale(1.03);
-
-}
-/* ==========================
-   SWIPER GALLERY
-========================== */
-
-.myGallery{
+.guideSwiper,
+.historySwiper{
 
     max-width:900px;
 
@@ -620,7 +1031,8 @@ html{
 
 }
 
-.myGallery img{
+.guideSwiper img,
+.historySwiper img{
 
     width:100%;
 
@@ -635,6 +1047,8 @@ html{
     box-shadow:0 20px 45px rgba(0,0,0,.18);
 
 }
+
+/* --- SWIPER GLOBAL --- */
 
 .swiper-button-next,
 .swiper-button-prev{
@@ -680,22 +1094,11 @@ html{
     background:#E4B013;
     
 }
-.gallery h2{
+/* ==============================
+   TOURNAMENT HIGHLIGHTS
+================================ */
 
-    font-size:34px;
-
-    color:#0B1F3A;
-
-    margin-bottom:50px;
-
-    font-weight:700;
-
-}
-/* ==========================
-   LOCATION
-========================== */
-
-.location{
+.highlights{
 
     padding:100px 24px;
 
@@ -705,7 +1108,7 @@ html{
 
 }
 
-.location h2{
+.highlights h2{
 
     font-size:34px;
 
@@ -715,76 +1118,55 @@ html{
 
 }
 
-.location-name{
+.highlight-grid{
 
-    font-size:24px;
+    display:grid;
 
-    font-weight:bold;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 
-    color:#0B1F3A;
+    gap:35px;
 
-    margin-bottom:10px;
+    max-width:1200px;
 
-}
-
-.location-address{
-
-    color:#666;
-
-    margin-bottom:40px;
+    margin:0 auto;
 
 }
 
-.map-placeholder{
+.highlight-card{
 
-    width:100%;
+    background:#ffffff;
 
-    max-width:900px;
-
-    height:420px;
-
-    margin:0 auto 40px;
-
-    border-radius:20px;
-
-    background:#E9ECEF;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    color:#777;
-
-    font-size:22px;
-
-    box-shadow:0 12px 30px rgba(0,0,0,.10);
-
-}
-/* ==========================
-   GOOGLE MAP
-========================== */
-
-.map-container{
-
-    width:100%;
-
-    max-width:900px;
-
-    height:420px;
-
-    margin:0 auto 40px;
-
-    border-radius:20px;
+    border-radius:22px;
 
     overflow:hidden;
 
-    box-shadow:0 12px 30px rgba(0,0,0,.10);
+    box-shadow:0 15px 35px rgba(0,0,0,.10);
+
+    transition:.35s ease;
 
 }
 
-.map-container iframe{
+.highlight-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 25px 60px rgba(0,0,0,.18);
+
+}
+
+.video-wrapper{
+
+    position:relative;
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    overflow:hidden;
+
+}
+
+.video-wrapper iframe{
 
     width:100%;
 
@@ -793,9 +1175,295 @@ html{
     border:0;
 
 }
-/* ==========================
+
+.highlight-card h3{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+    color:#0B1F3A;
+
+    margin:24px 20px 12px;
+
+
+}
+
+.highlight-card p{
+
+    color:#666;
+
+    line-height:1.7;
+
+    padding:0 20px 28px;
+
+}
+.video-thumbnail{
+
+    position:relative;
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    background:#000;
+
+}
+.video-thumbnail::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+
+        to top,
+
+        rgba(0,0,0,.35),
+
+        rgba(0,0,0,0)
+
+    );
+
+    pointer-events:none;
+
+}
+.video-thumbnail img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.35s;
+
+}
+
+.play-button{
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.28);
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+.play-button span{
+
+    width:82px;
+
+    height:82px;
+
+    border-radius:50%;
+
+    background:#D4AF37;
+
+    border:4px solid rgba(255,255,255,.25);
+
+    backdrop-filter:blur(6px);
+
+    color:white;
+
+    font-size:38px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.25);
+
+    transition:.3s;
+
+}
+
+.video-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(0,0,0,.88);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.35s ease;
+
+    z-index:99999;
+
+}
+.video-thumbnail:hover img{
+
+    transform:scale(1.12);
+
+}
+
+.video-thumbnail:hover .play-button{
+
+    background:rgba(0,0,0,.15);
+
+}
+
+.video-thumbnail:hover .play-button span{
+
+    transform:scale(1.15);
+
+    background:#FFD700;
+}
+.video-modal-content{
+
+    width:90%;
+
+    max-width:960px;
+
+    position:relative;
+
+    transform:scale(.92);
+
+    transition:.35s ease;
+
+    transform:scale(1);
+
+}
+
+.video-modal iframe{
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    border:none;
+
+    border-radius:14px;
+
+}
+.video-modal.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+.close-video{
+
+    position:absolute;
+
+    top:-50px;
+
+    right:0;
+
+    color:white;
+
+    font-size:42px;
+
+    cursor:pointer;
+
+}
+
+
+/* ==============================
+   OFFICIAL SPONSOR
+================================ */
+
+.sponsors{
+
+    padding:100px 24px;
+
+    background:white;
+
+    text-align:center;
+
+}
+
+.sponsors h2{
+
+    font-size:34px;
+
+    color:#0B1F3A;
+
+    margin-bottom:20px;
+
+}
+
+.sponsor-grid{
+
+    max-width:1100px;
+
+    margin:50px auto 0;
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:28px;
+
+}
+
+.sponsor-card{
+
+    background:#fff;
+
+    border-radius:18px;
+
+    padding:30px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.sponsor-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.14);
+
+}
+
+.sponsor-card img{
+
+    width:100%;
+
+    max-height:90px;
+
+    object-fit:contain;
+
+    margin:auto;
+
+}
+
+/* ==============================
    FOOTER
-========================== */
+================================ */
 
 .footer{
 
@@ -805,120 +1473,68 @@ html{
 
     text-align:center;
 
-    padding:80px 24px;
+    padding:60px 20px;
 
 }
 
-.footer h2{
+.footer-content{
 
-    font-size:30px;
+    max-width:700px;
+
+    margin:auto;
+
+}
+
+.footer-logo{
+
+    display:block;
+
+    width:90px;
+
+    margin:0 auto 20px;
+
+}
+
+.footer h3{
+
+    font-size:28px;
+
+    font-weight:700;
 
     margin-bottom:15px;
 
 }
 
-.footer-club{
+.footer p{
 
-    color:#E4B013;
+    color:#D8D8D8;
 
-    font-size:20px;
-
-    margin-bottom:40px;
-
-}
-
-.footer-contact{
-
-    line-height:2;
-
-    margin-bottom:40px;
-
-}
-
-.footer hr{
-
-    border:none;
-
-    border-top:1px solid rgba(255,255,255,.2);
-
-    max-width:500px;
-
-    margin:40px auto;
-
-}
-
-.copyright{
-
-    color:#bbb;
-
-    font-size:14px;
-
-}
-/* ==========================
-   OPENING SCREEN
-========================== */
-
-.opening-screen{
-
-    position:fixed;
-
-    top:0;
-
-    left:0;
-
-    width:100%;
-
-    height:100vh;
-
-    background:#0B1F3A;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:9999;
-
-}
-.opening-content{
-
-    position:relative;
-
-    z-index:10000;
-
-    text-align:center;
-
-    color:white;
-
-    padding:30px;
-
-}
-.opening-logo{
-
-    width:140px;
+    line-height:1.8;
 
     margin-bottom:30px;
 
 }
-.opening-content h1{
 
-    font-size:40px;
+.footer-divider{
 
-    margin-bottom:20px;
+    width:120px;
 
-}
-.opening-content p{
+    height:2px;
 
-    max-width:500px;
+    background:#D4AF37;
 
-    margin:0 auto 40px;
-
-    line-height:1.8;
-
-    color:#ddd;
+    margin:0 auto 25px;
 
 }
+
+.footer small{
+
+    color:#AAAAAA;
+
+    font-size:14px;
+
+}
+
 /* ==========================
    FLOATING NAVIGATION
 ========================== */
@@ -941,6 +1557,8 @@ html{
 
     display:flex;
 
+    align-items:center;
+
     gap:22px;
 
     z-index:9998;
@@ -948,6 +1566,8 @@ html{
     backdrop-filter:blur(10px);
 
     box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+    transition:transform .35s ease;
 
 }
 
@@ -957,7 +1577,11 @@ html{
 
     font-size:24px;
 
+    color:white;
+
     transition:.3s;
+
+    -webkit-tap-highlight-color:transparent;
 
 }
 
@@ -970,14 +1594,6 @@ html{
    ACTIVE NAVIGATION
 ========================== */
 
-.floating-nav a{
-
-    color:white;
-
-    transition:.3s;
-
-}
-
 .floating-nav a.active{
 
     color:#FFD700;
@@ -988,156 +1604,9 @@ html{
 /* ==========================
    AUTO HIDE NAVIGATION
 ========================== */
-
-.floating-nav{
-
-    transition:transform .35s ease;
-
-}
-
 .floating-nav.hide{
 
     transform:translateX(-50%) translateY(120px);
-
-}
-/* ==========================
-   STATISTICS
-========================== */
-
-.stats{
-
-    padding:90px 20px;
-
-    background:#F5F8FC;
-
-    text-align:center;
-
-}
-
-.stats h2{
-
-    color:#0B1F3A;
-
-    margin-bottom:50px;
-
-}
-
-.stats-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-
-    gap:25px;
-
-}
-
-.stat-box{
-
-    background:white;
-
-    padding:35px;
-
-    border-radius:20px;
-
-    box-shadow:0 8px 25px rgba(0,0,0,.08);
-
-}
-
-.counter{
-
-    font-size:52px;
-
-    color:#FFD700;
-
-    margin-bottom:10px;
-
-    font-weight:bold;
-
-}
-
-.stat-box p{
-
-    color:#555;
-
-    font-weight:600;
-
-}
-/* ==========================
-   TOURNAMENT CATEGORIES
-========================== */
-
-.categories{
-
-    padding:90px 20px;
-
-    background:#F5F8FC;
-
-    text-align:center;
-
-}
-
-.categories h2{
-
-    color:#0B1F3A;
-
-    margin-bottom:50px;
-
-}
-
-.category-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-
-    gap:30px;
-
-}
-
-.category-card{
-
-    background:white;
-
-    padding:35px;
-
-    border-radius:22px;
-
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
-
-    transition:.35s;
-
-}
-
-.category-card:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 20px 40px rgba(0,0,0,.12);
-
-}
-
-.category-icon{
-
-    font-size:52px;
-
-    margin-bottom:20px;
-
-}
-
-.category-card h3{
-
-    color:#0B1F3A;
-
-    margin-bottom:15px;
-
-}
-
-.category-card p{
-
-    color:#666;
-
-    line-height:1.7;
 
 }
 /* ==========================
@@ -1196,69 +1665,242 @@ html{
 
 }
 /* ==========================
-   REGISTER SECTION
+   RESPONSIVE TABLET
 ========================== */
 
-.register{
+@media (min-width:768px){
 
-    padding:90px 20px;
+    .about{
 
-    background:#0B1F3A;
+        padding:100px 60px;
 
-    text-align:center;
+    }
 
-}
+    .feature-list{
 
-.register-content{
+        flex-direction:row;
 
-    max-width:700px;
+    }
 
-    margin:auto;
+    .feature-item{
 
-}
+        flex:1;
 
-.register h2{
+    }
+/* ---------- HIGHLIGHTS ---------- */
 
-    color:#ffffff;
+.highlight-grid{
 
-    font-size:2rem;
-
-    margin-bottom:20px;
-
-}
-
-.register p{
-
-    color:#d9d9d9;
-
-    line-height:1.8;
-
-    margin-bottom:40px;
+    grid-template-columns:1fr;
 
 }
 
-.register-button{
+.highlight-card h3{
 
-    display:inline-block;
+    font-size:20px;
 
-    padding:18px 40px;
+}
+/* ---------- SPONSOR ---------- */
 
-    border-radius:50px;
+.sponsor-grid{
 
-    background:#D4AF37;
+    grid-template-columns:repeat(2,1fr);
 
-    color:#0B1F3A;
+}
+}
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
 
-    text-decoration:none;
+@media (max-width:768px){
 
-    font-weight:700;
+    /* ---------- HERO ---------- */
 
-    transition:.3s;
+    .cover{
+
+        padding:30px 20px;
+
+    }
+
+    .logo{
+
+    width:180px;
+    height:auto;
+
+    margin:0 auto;
+
+    }
+
+    .club-name{
+
+        font-size:28px;
+
+    }
+
+    .event-name{
+
+        font-size:24px;
+
+    }
+
+    .tagline{
+
+        font-size:15px;
+
+    }
+
+    .info-area{
+
+        font-size:18px;
+
+    }
+    .play-button span{
+
+    width:64px;
+
+    height:64px;
+
+    font-size:30px;
+
+    }
+    .time-box{
+
+    width:70px;
 
 }
 
-.register-button:hover{
+.time-box span{
 
-    transform:translateY(-4px);
+    font-size:26px;
+
+}
+
+.time-box small{
+
+    font-size:11px;
+
+}
+/* ---------- REGISTRATION STATUS ---------- */
+
+.quota-wrapper{
+
+    grid-template-columns:1fr;
+
+}
+
+.quota-number{
+
+    font-size:42px;
+
+}
+/* ==============================
+      PLAY BUTTON ANIMATION
+================================ */
+
+@keyframes playPulse{
+
+    0%{
+
+        box-shadow:0 0 0 0 rgba(212,175,55,.65);
+
+    }
+
+    70%{
+
+        box-shadow:0 0 0 20px rgba(212,175,55,0);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 0 0 rgba(212,175,55,0);
+
+    }
+
+}
+
+.play-button span{
+
+    animation:playPulse 2s infinite;
+
+}
+
+    /* ---------- ABOUT ---------- */
+
+    .feature-item{
+
+        padding:24px;
+
+    }
+
+    /* ---------- CATEGORY ---------- */
+
+    .category-card{
+
+        padding:24px;
+
+    }
+
+    /* ---------- STATISTICS ---------- */
+
+    .counter{
+
+        font-size:40px;
+
+    }
+
+    /* ---------- SCHEDULE ---------- */
+
+    .schedule-item{
+
+        flex-direction:column;
+
+    }
+
+    .schedule-time{
+
+        width:100%;
+
+    }
+
+    .schedule-item::before,
+
+    .schedule-list::before{
+
+        display:none;
+
+    }
+
+    /* ---------- LOCATION ---------- */
+
+    .map-container{
+
+        height:320px;
+
+    }
+
+    /* ---------- FLOATING NAV ---------- */
+
+    .floating-nav{
+
+        gap:14px;
+
+        padding:10px 16px;
+
+    }
+
+    .floating-nav a{
+
+        font-size:20px;
+
+    }
+
+    /* ---------- FOOTER ---------- */
+
+    .footer h3{
+
+        font-size:24px;
+
+    }
 
 }
