@@ -1,7 +1,64 @@
-console.log("Script.js berhasil dimuat");
+// ==========================================
+// GLOBAL VARIABLES
+// ==========================================
+
+// --- CONFIG ---
+const ACTIVE_SECTION_OFFSET = 120;
+
+// --- AUDIO ---
 const music = document.getElementById("bgMusic");
 
+//--- OPENING SCREEN ---
+const enterButton = document.getElementById("enterInvitation");
+const openingScreen = document.getElementById("openingScreen");
+
+//--- HERO ---
+const cover = document.querySelector(".cover");
+
+//--- NAVIGATION ---
+const floatingNav = document.querySelector(".floating-nav");
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll(".floating-nav a");
+
+//--- REVEAL ---
 const reveals = document.querySelectorAll(".reveal");
+
+//--- COUNTDOWN ---
+const daysElement = document.getElementById("days");
+const hoursElement = document.getElementById("hours");
+const minutesElement = document.getElementById("minutes");
+const secondsElement = document.getElementById("seconds");
+const message = document.getElementById("countdownMessage");
+
+
+//--- ANIMATED COUNTER ---
+const counters = document.querySelectorAll(".counter");
+
+
+//--- LIGHT BOX ---
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const closeLightbox = document.querySelector(".close-lightbox");
+
+//--- VIDEO MODAL ---
+const thumbnails = document.querySelectorAll(".video-thumbnail");
+const videoModal = document.getElementById("videoModal");
+const videoFrame = document.getElementById("videoFrame");
+const closeVideo = document.querySelector(".close-video");
+
+// ==========================================
+// OPENING SCREEN
+// ==========================================
+if (enterButton && openingScreen) {
+    enterButton.addEventListener("click", function () {
+        if (music) {music.play();}
+        openingScreen.style.display = "none";
+    });
+}
+
+// ==========================================
+// INTERSECTION OBSERVER
+// ==========================================
 
 const observer = new IntersectionObserver(function(entries){
 
@@ -10,6 +67,8 @@ const observer = new IntersectionObserver(function(entries){
         if(entry.isIntersecting){
 
             entry.target.classList.add("active");
+
+            observer.unobserve(entry.target);
 
         }
 
@@ -25,8 +84,77 @@ reveals.forEach(function(item){
 
 });
 
+// ==========================================
+// SCROLL EFFECT
+// ==========================================
+
+// --- HERO PARALLAX ---
+if (cover) {
+
+    window.addEventListener("scroll", function(){
+
+        const scroll = window.scrollY;
+
+        cover.style.backgroundPositionY =
+            scroll * 0.35 + "px";
+
+    });
+
+}
+// --- ACTIVE NAVIGATION ---
+window.addEventListener("scroll", function () {
+
+    let current = "";
+
+    sections.forEach(function(section){
+
+        const sectionTop = section.offsetTop - ACTIVE_SECTION_OFFSET;
+
+        if(window.scrollY >= sectionTop){
+            current = section.getAttribute("id");
+        }
+    });
+
+    navLinks.forEach(function(link){
+
+        link.classList.remove("active");
+
+        if(link.getAttribute("href") === "#" + current){
+            link.classList.add("active");
+        }
+    });
+});
+
+// --- AUTO HIDE FLOATING NAV ---
+
+let lastScroll = 0;
+
+const HIDE_OFFSET = 300;
+
+if (floatingNav) {
+
+    window.addEventListener("scroll", function () {
+
+        const currentScroll = window.scrollY;
+
+        if (
+            currentScroll > lastScroll &&
+            currentScroll > HIDE_OFFSET
+        ) {
+
+            floatingNav.classList.add("hide");
+
+        } else {
+
+            floatingNav.classList.remove("hide");
+        }
+
+        lastScroll = currentScroll;
+    });
+}
+
 // ==========================
-// COUNTDOWN
+// HERO COUNTDOWN
 // ==========================
 
 function formatNumber(number) {
@@ -44,15 +172,13 @@ function updateCountdown() {
 
     if (distance <= 0) {
 
-        clearInterval(timer);
+        clearInterval(counterTimer);
 
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
-
-        const message = document.getElementById("countdownMessage");
-
+        daysElement.textContent = "00";
+        hoursElement.textContent = "00";
+        minutesElement.textContent = "00";
+        secondsElement.textContent = "00";
+       
         if (message) {
             message.textContent = "🏆 Turnamen Telah Dimulai!";
         }
@@ -77,13 +203,11 @@ function updateCountdown() {
         1000
     );
 
-    document.getElementById("days").textContent = formatNumber(days);
-    document.getElementById("hours").textContent = formatNumber(hours);
-    document.getElementById("minutes").textContent = formatNumber(minutes);
-    document.getElementById("seconds").textContent = formatNumber(seconds);
-
-    const message = document.getElementById("countdownMessage");
-
+    daysElement.textContent = formatNumber(days);
+    hoursElement.textContent = formatNumber(hours);
+    minutesElement.textContent = formatNumber(minutes);
+    secondsElement.textContent = formatNumber(seconds);
+   
     if (message) {
         message.textContent = "";
     }
@@ -94,7 +218,57 @@ updateCountdown();
 timer = setInterval(updateCountdown, 1000);
 
 // ==========================
-// SWIPER GALLERY
+// ANIMATED COUNTER
+// ==========================
+
+const counterObserver = new IntersectionObserver(function(entries){
+
+    entries.forEach(function(entry){
+
+        if(entry.isIntersecting){
+
+            const counter = entry.target;
+
+            const target = Number(counter.dataset.target);
+
+            let number = 0;
+
+            const speed = target / 80;
+
+            const timer = setInterval(function(){
+
+                number += speed;
+
+                if(number >= target){
+
+                    counter.textContent = target;
+
+                    clearInterval(timer);
+
+                }else{
+
+                    counter.textContent = Math.floor(number);
+
+                }
+
+            },20);
+
+            counterObserver.unobserve(counter);
+
+        }
+
+    });
+
+});
+
+counters.forEach(function(counter){
+
+    counterObserver.observe(counter);
+
+});
+
+// ==========================
+// GUIDE SWIPER
 // ==========================
 
 const guideSwiper = new Swiper(".guideSwiper",{
@@ -150,6 +324,9 @@ const guideSwiper = new Swiper(".guideSwiper",{
     }
 
 });
+// ==========================
+// HISTORY SWIPER
+// ==========================
 const historySwiper = new Swiper(".historySwiper", {
 
     loop: false,
@@ -211,236 +388,106 @@ const historySwiper = new Swiper(".historySwiper", {
 });
 
 // ==========================
-// OPENING SCREEN
-// ==========================
-
-const enterButton = document.getElementById("enterInvitation");
-const openingScreen = document.getElementById("openingScreen");
-
-console.log("enterButton =", enterButton);
-console.log("openingScreen =", openingScreen);
-console.log("music =", music);
-
-enterButton.addEventListener("click", function () {
-
-    console.log("Tombol diklik");
-
-    music.play();
-
-    openingScreen.style.display = "none";
-
-});
-// ==========================
-// ACTIVE NAVIGATION
-// ==========================
-
-const sections = document.querySelectorAll("section");
-
-const navLinks = document.querySelectorAll(".floating-nav a");
-
-window.addEventListener("scroll", function () {
-
-    let current = "";
-
-    sections.forEach(function(section){
-
-        const sectionTop = section.offsetTop - 120;
-
-        if(window.scrollY >= sectionTop){
-
-            current = section.getAttribute("id");
-
-        }
-
-    });
-
-    navLinks.forEach(function(link){
-
-        link.classList.remove("active");
-
-        if(link.getAttribute("href") === "#" + current){
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-});
-// ==========================
-// AUTO HIDE FLOATING NAV
-// ==========================
-
-const floatingNav = document.querySelector(".floating-nav");
-
-let lastScroll = 0;
-
-window.addEventListener("scroll", function(){
-
-    const currentScroll = window.pageYOffset;
-
-    if(currentScroll > lastScroll && currentScroll > 300){
-
-        floatingNav.classList.add("hide");
-
-    }else{
-
-        floatingNav.classList.remove("hide");
-
-    }
-
-    lastScroll = currentScroll;
-
-});
-// ==========================
-// HERO PARALLAX
-// ==========================
-
-const cover = document.querySelector(".cover");
-
-window.addEventListener("scroll", function(){
-
-    const scroll = window.pageYOffset;
-
-    cover.style.backgroundPositionY =
-        scroll * 0.35 + "px";
-
-});
-// ==========================
-// ANIMATED COUNTER
-// ==========================
-
-const counters = document.querySelectorAll(".counter");
-
-const counterObserver = new IntersectionObserver(function(entries){
-
-    entries.forEach(function(entry){
-
-        if(entry.isIntersecting){
-
-            const counter = entry.target;
-
-            const target = Number(counter.dataset.target);
-
-            let number = 0;
-
-            const speed = target / 80;
-
-            const timer = setInterval(function(){
-
-                number += speed;
-
-                if(number >= target){
-
-                    counter.textContent = target;
-
-                    clearInterval(timer);
-
-                }else{
-
-                    counter.textContent = Math.floor(number);
-
-                }
-
-            },20);
-
-            counterObserver.unobserve(counter);
-
-        }
-
-    });
-
-});
-
-counters.forEach(function(counter){
-
-    counterObserver.observe(counter);
-
-});
-// ==========================
 // LIGHTBOX
 // ==========================
 
-const swiperImages = document.querySelectorAll(".swiper-slide img");
+function enableLightbox(swiper){
 
-const lightbox = document.getElementById("lightbox");
+    swiper.on("tap", function(){
 
-const lightboxImage = document.getElementById("lightboxImage");
+        const slide = swiper.slides[swiper.activeIndex];
 
-const closeLightbox = document.querySelector(".close-lightbox");
+        const img = slide.querySelector("img");
 
-swiperImages.forEach(function(img){
-
-    img.addEventListener("click", function(){
+        if (!img) return;
 
         lightbox.style.display = "flex";
 
-        lightboxImage.src = this.src;
+        lightboxImage.src = img.src;
 
     });
 
-});
+}
 
-closeLightbox.addEventListener("click", function(){
+enableLightbox(historySwiper);
+enableLightbox(guideSwiper);
 
-    lightbox.style.display = "none";
+if (closeLightbox) {
 
-});
-
-lightbox.addEventListener("click", function(e){
-
-    if(e.target === lightbox){
+    closeLightbox.addEventListener("click", function(){
 
         lightbox.style.display = "none";
 
-    }
+    });
 
-});
+}
+
+if (lightbox) {
+
+    lightbox.addEventListener("click", function(e){
+
+        if(e.target === lightbox){
+
+            lightbox.style.display = "none";
+
+        }
+
+    });
+
+}
+
 // ==========================
 // VIDEO MODAL
 // ==========================
 
-const thumbnails =
-document.querySelectorAll(".video-thumbnail");
+function openVideoModal(videoUrl){
 
-const videoModal =
-document.getElementById("videoModal");
+    videoModal.classList.add("show");
 
-const videoFrame =
-document.getElementById("videoFrame");
+    videoFrame.src = videoUrl + "?autoplay=1";
 
-const closeVideo =
-document.querySelector(".close-video");
+}
+
+function closeVideoModal(){
+
+    videoModal.classList.remove("show");
+
+    videoFrame.src = "";
+
+}
 
 thumbnails.forEach(function(item){
 
-    item.addEventListener("click",function(){
+    item.addEventListener("click", function(){
 
-        videoModal.classList.add("show");
-
-        videoFrame.src =
-        this.dataset.video + "?autoplay=1";
+        openVideoModal(item.dataset.video);
 
     });
 
 });
 
-closeVideo.addEventListener("click",function(){
+if (closeVideo) {
 
-    videoModal.style.display="none";
+    closeVideo.addEventListener("click", function(){
 
-    videoFrame.src="";
+        closeVideoModal();
 
-});
+    });
 
-videoModal.addEventListener("click",function(e){
+}
 
-    if(e.target===videoModal){
+if (videoModal) {
 
-        videoModal.classList.remove("show");
+    videoModal.addEventListener("click", function(e){
 
-        videoFrame.src="";
+        if(e.target === videoModal){
 
-    }
+            closeVideoModal();
 
-});
+        }
+
+    });
+
+}
+
+

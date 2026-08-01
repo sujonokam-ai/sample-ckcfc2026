@@ -77,7 +77,7 @@ button{
 
     width:100%;
 
-    height:100vh;
+    min-height:100vh;
 
     background:#0B1F3A;
 
@@ -92,10 +92,6 @@ button{
 }
 .opening-content{
 
-    position:relative;
-
-    z-index:10000;
-
     text-align:center;
 
     color:white;
@@ -105,14 +101,21 @@ button{
 }
 .opening-logo{
 
-    width:140px;
+    width:clamp(140px,25vw,170px);
 
-    margin-bottom:30px;
+    max-width:100%;
+
+    height:auto;
+
+    display:block;
+
+    margin:0 auto 30px;
 
 }
+
 .opening-content h1{
 
-    font-size:40px;
+    font-size:clamp(32px,5vw,40px);
 
     margin-bottom:20px;
 
@@ -160,7 +163,7 @@ button{
             rgba(0,0,0,.55),
             rgba(0,0,0,.55)
         ),
-        url("images/poster.jpg");
+        url("images/hero/poster.jpg");
 
     background-size:cover;
 
@@ -171,13 +174,12 @@ button{
     transition:background-position .15s linear;
 
 }
-.logo{
-
-    width:180px;
+.hero-logo{
+    width:140px;
+    max-width:100%;
     height:auto;
-
-    margin:0 auto;
-
+    display:block;
+    margin:0 auto 20px;
 }
 
 .club-name{
@@ -763,144 +765,113 @@ button{
 /* ==========================
    TOURNAMENT SCHEDULE
 ========================== */
+
 .schedule{
     padding:80px 24px;
-    background:#ffffff;
-    text-align:center;
+    background:#fff;
 }
 
 .schedule h2{
-
     text-align:center;
-
     font-size:32px;
-
     color:#0B1F3A;
-
-    margin-bottom:50px;
-
+    margin-bottom:20px;
 }
-.schedule-day{
 
-    margin-bottom:60px;
-
-}
-.day-title{
-
-    font-size:26px;
-
-    color:#0B1F3A;
-
-    margin-bottom:10px;
-
-}
-.day-date{
-
-    color:#888;
-
-    margin-bottom:30px;
-
-}
-.schedule-item{
-
-    display:flex;
-
-    gap:20px;
-
-    align-items:flex-start;
-
-    margin-bottom:25px;
-
-    position:relative;
-
-}
-.schedule-time{
-
-    min-width:80px;
-
-    background:#e4b013;
-
-    color:#0B1F3A;
-
-    font-weight:bold;
-
-    border-radius:12px;
-
-    padding:10px;
-
+.schedule .section-description{
     text-align:center;
-
+    max-width:700px;
+    margin:0 auto 50px;
+    color:#666;
+    line-height:1.8;
 }
-.schedule-content{
 
-    flex:1;
+.timeline{
+    max-width:900px;
+    margin:0 auto;
+}
 
-    background:#F8F9FB;
+.timeline-day{
+
+    margin-bottom:40px;
+
+    padding:18px 20px;
+
+    background:#ffffff;
 
     border-radius:16px;
 
-    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.05);
 
-    box-shadow:0 5px 15px rgba(0,0,0,.06);
+    text-align:left;
 
 }
-.schedule-content h4{
 
-    margin-top:0;
+.day-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-size:20px;
+
+    font-weight:700;
 
     color:#0B1F3A;
 
-}
-.schedule-content p{
+    padding-bottom:12px;
 
-    color:#666;
+    margin-bottom:20px;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.day-title span{
+
+    font-size:15px;
+
+    font-weight:500;
+
+    color:#888;
+
+}
+
+.timeline-item{
+
+    display:grid;
+
+    grid-template-columns:55px 1fr;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:6px 0;
+
+}
+
+.time{
+
+    font-weight:700;
+
+    color:#0B1F3A;
+
+    white-space:nowrap;
+
+}
+
+.activity{
+
+    color:#555;
 
     line-height:1.6;
 
-    margin-bottom:0;
-
 }
-.schedule-list{
 
-    position:relative;
 
-}
-.schedule-item::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:100px;
-
-    top:18px;
-
-    width:14px;
-
-    height:14px;
-
-    background:#e4b013;
-
-    border-radius:50%;
-
-}
-.schedule-list::before{
-
-    content:"";
-
-    position:absolute;
-
-    left:107px;
-
-    top:0;
-
-    bottom:0;
-
-    width:2px;
-
-    background:#d7d7d7;
-
-}
 /* ==========================
    TOURNAMENT LOCATION
 ========================== */
@@ -1387,17 +1358,15 @@ button{
     cursor:pointer;
 
 }
-
-
 /* ==============================
-   OFFICIAL SPONSOR
+   SUPPORTED BY
 ================================ */
 
 .sponsors{
 
     padding:100px 24px;
 
-    background:white;
+    background:#F8F9FC;
 
     text-align:center;
 
@@ -1411,36 +1380,78 @@ button{
 
     margin-bottom:20px;
 
+    font-weight:700;
+
 }
 
+.sponsor-group{
+
+    margin-top:60px;
+
+}
+
+.sponsor-group h3{
+
+    font-size:22px;
+
+    color:#0B1F3A;
+
+    margin-bottom:30px;
+
+    font-weight:600;
+
+}
+.title-sponsor{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.sponsor-card.large{
+
+    width:400px;
+
+    min-height:210px;
+
+}
 .sponsor-grid{
 
-    max-width:1100px;
+    max-width:950px;
 
-    margin:50px auto 0;
+    margin:auto;
 
     display:grid;
 
     grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 
-    gap:28px;
+    gap:24px;
 
 }
-
 .sponsor-card{
 
-    background:#fff;
+    background:white;
 
-    border-radius:18px;
+    border-radius:22px;
 
-    padding:30px;
+    min-height:190px;
 
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    padding:25px;
 
-    transition:.3s;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+
+    transition:.35s;
 
 }
-
 .sponsor-card:hover{
 
     transform:translateY(-8px);
@@ -1448,16 +1459,20 @@ button{
     box-shadow:0 20px 45px rgba(0,0,0,.14);
 
 }
-
 .sponsor-card img{
 
-    width:100%;
+    max-width:100%;
 
-    max-height:90px;
+    max-height:120px;
 
     object-fit:contain;
 
-    margin:auto;
+    transition:.35s;
+
+}
+.sponsor-card:hover img{
+
+    transform:scale(1.05);
 
 }
 
@@ -1467,29 +1482,30 @@ button{
 
 .footer{
 
-    background:#0B1F3A;
+    background:#081524;
 
     color:white;
 
-    text-align:center;
+    padding:70px 24px 35px;
 
-    padding:60px 20px;
+    text-align:center;
 
 }
 
-.footer-content{
+.footer-container{
 
-    max-width:700px;
+    max-width:900px;
 
     margin:auto;
 
 }
-
 .footer-logo{
 
-    display:block;
-
     width:90px;
+
+    height:auto;
+
+    display:block;
 
     margin:0 auto 20px;
 
@@ -1497,39 +1513,98 @@ button{
 
 .footer h3{
 
-    font-size:28px;
+    font-size:30px;
 
-    font-weight:700;
+    margin-bottom:12px;
 
-    margin-bottom:15px;
+    color:#FFD700;
 
 }
 
-.footer p{
+.footer-tagline{
 
     color:#D8D8D8;
 
-    line-height:1.8;
+    font-style:italic;
 
-    margin-bottom:30px;
+    margin-bottom:35px;
+
+}
+.footer-info{
+
+    margin-bottom:35px;
+
+    line-height:2;
 
 }
 
-.footer-divider{
+.footer-contact{
 
-    width:120px;
+    margin-bottom:35px;
 
-    height:2px;
+    line-height:2;
+
+}
+
+.footer-contact h4{
+
+    color:#FFD700;
+
+    margin-bottom:12px;
+
+}
+.footer-social{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin-bottom:35px;
+
+}
+
+.footer-social a{
+
+    width:48px;
+
+    height:48px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.08);
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:24px;
+
+    transition:.3s;
+
+}
+
+.footer-social a:hover{
 
     background:#D4AF37;
 
-    margin:0 auto 25px;
+    transform:translateY(-5px);
 
 }
+.footer-bottom{
 
-.footer small{
+    border-top:1px solid rgba(255,255,255,.15);
 
-    color:#AAAAAA;
+    padding-top:25px;
+
+    color:#BDBDBD;
 
     font-size:14px;
 
@@ -1722,16 +1797,7 @@ button{
 
     }
 
-    .logo{
-
-    width:180px;
-    height:auto;
-
-    margin:0 auto;
-
-    }
-
-    .club-name{
+        .club-name{
 
         font-size:28px;
 
@@ -1791,6 +1857,70 @@ button{
 .quota-number{
 
     font-size:42px;
+
+}
+/* ---------- SPONSOR ---------- */
+
+.title-sponsor{
+
+    display:block;
+
+}
+
+.sponsor-card.large{
+
+    width:100%;
+
+    max-width:320px;
+
+    margin:auto;
+
+}
+
+.sponsor-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+}
+
+.sponsor-card{
+
+    min-height:140px;
+
+    padding:20px;
+
+}
+
+.sponsor-card img{
+
+    max-height:70px;
+
+}
+/* ---------- FOOTER ---------- */
+
+.footer{
+
+    padding:60px 20px 30px;
+
+}
+
+.footer h3{
+
+    font-size:24px;
+
+}
+
+.footer-logo{
+
+    width:75px;
+
+}
+
+.footer-social{
+
+    gap:14px;
 
 }
 /* ==============================
