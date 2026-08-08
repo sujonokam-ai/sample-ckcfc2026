@@ -37,7 +37,7 @@ button{
 }
 .btn-primary{
 
-    background:#e4b013;
+    background:#D4AF37;
     color:#0B1F3A;
     padding:16px 32px;
     min-width:220px;
@@ -51,7 +51,7 @@ button{
 }
 .btn-primary:hover{
 
-    background:#edd58c;
+    background:#E8BF4A;
 
     transform:scale(1.05);
 
@@ -224,7 +224,7 @@ button{
 
 .countdown-box{
 
-    margin-top:40px;
+    margin-top:5px;
 
     text-align:center;
 
@@ -232,11 +232,11 @@ button{
 
 .countdown-box h3{
 
-    color:#FFD700;
+    color:#D4AF37;
 
     font-size:20px;
 
-    margin-bottom:20px;
+    margin-bottom:5px;
 
     font-weight:600;
 
@@ -259,7 +259,7 @@ button{
 
     margin-bottom:18px;
 
-    color:#FFD700;
+    color:#D4AF37;
 
     font-weight:600;
 
@@ -276,7 +276,7 @@ button{
 
     backdrop-filter:blur(10px);
 
-    border:1px solid rgba(255,255,255,.18);
+    border:2px solid rgba(255,255,255,.18);
 
 }
 
@@ -288,7 +288,7 @@ button{
 
     font-weight:700;
 
-    color:#FFD700;
+    color:#f3f0de;
 
 }
 
@@ -390,7 +390,7 @@ button{
 
     background:#F5F7FA;
 
-    padding:80px 24px;
+    padding:90px 24px;
 
     color:#111;
 
@@ -408,13 +408,15 @@ button{
 }
 .section-description{
 
-    max-width:700px;
+    max-width:720px;
 
     margin:0 auto 50px;
 
-    color:#555;
+    font-size:18px;
 
     line-height:1.8;
+
+    color:#666;
 
 }
 .feature-list{
@@ -434,7 +436,7 @@ button{
 
     border-radius:20px;
 
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    box-shadow:0 10px 28px rgba(0,0,0,.08);
 
     transition:.3s;
 
@@ -465,7 +467,7 @@ button{
 
 .categories{
 
-    padding:90px 20px;
+    padding:90px 24px;
 
     background:#F5F8FC;
 
@@ -497,9 +499,9 @@ button{
 
     padding:35px;
 
-    border-radius:22px;
+    border-radius:20px;
 
-    box-shadow:0 12px 30px rgba(0,0,0,.08);
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
 
     transition:.35s;
 
@@ -542,7 +544,7 @@ button{
 
 .registration-status{
 
-    padding:100px 24px;
+    padding:90px 24px;
 
     background:#F5F7FA;
 
@@ -559,7 +561,19 @@ button{
     margin-bottom:20px;
 
 }
+.register-note{
 
+    margin-top:18px;
+
+    color:#d9d9d9;
+
+    font-size:15px;
+
+    line-height:1.6;
+
+    opacity:.9;
+
+}
 .quota-wrapper{
 
     max-width:900px;
@@ -582,7 +596,7 @@ button{
 
     padding:35px;
 
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
+    box-shadow:0 15px 28px rgba(0,0,0,.08);
 
     transition:.3s;
 
@@ -632,7 +646,7 @@ button{
 
     background:#E4E4E4;
 
-    border-radius:30px;
+    border-radius:20px;
 
     overflow:hidden;
 
@@ -767,7 +781,7 @@ button{
 ========================== */
 
 .schedule{
-    padding:80px 24px;
+    padding:90px 24px;
     background:#fff;
 }
 
@@ -780,8 +794,9 @@ button{
 
 .schedule .section-description{
     text-align:center;
-    max-width:700px;
+    max-width:720px;
     margin:0 auto 50px;
+    font-size:18px;
     color:#666;
     line-height:1.8;
 }
@@ -799,9 +814,9 @@ button{
 
     background:#ffffff;
 
-    border-radius:16px;
+    border-radius:20px;
 
-    box-shadow:0 4px 12px rgba(0,0,0,.05);
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
 
     text-align:left;
 
@@ -815,7 +830,7 @@ button{
 
     align-items:center;
 
-    font-size:20px;
+    font-size:16px;
 
     font-weight:700;
 
@@ -847,7 +862,7 @@ button{
 
     align-items:center;
 
-    gap:10px;
+    gap:15px;
 
     padding:6px 0;
 
@@ -878,7 +893,7 @@ button{
 
 .location{
 
-    padding:100px 24px;
+    padding:90px 24px;
 
     background:#F5F7FA;
 
@@ -936,7 +951,7 @@ button{
 
     overflow:hidden;
 
-    box-shadow:0 12px 30px rgba(0,0,0,.10);
+    box-shadow:0 12px 28px rgba(0,0,0,.10);
 
 }
 
@@ -955,7 +970,7 @@ button{
 
 .guide{
 
-    padding:100px 24px;
+    padding:90px 24px;
 
     background:#ffffff;
 
@@ -968,7 +983,7 @@ button{
 
 .history{
 
-    padding:100px 24px;
+    padding:90px 24px;
 
     background:#ffffff;
 
@@ -1062,7 +1077,7 @@ button{
     border-radius:20px;
 
     opacity:1;
-    background:#E4B013;
+    background:#D4AF37;
     
 }
 /* ==============================
@@ -1071,7 +1086,7 @@ button{
 
 .highlights{
 
-    padding:100px 24px;
+    padding:90px 24px;
 
     background:#F5F7FA;
 
@@ -1107,11 +1122,11 @@ button{
 
     background:#ffffff;
 
-    border-radius:22px;
+    border-radius:20px;
 
     overflow:hidden;
 
-    box-shadow:0 15px 35px rgba(0,0,0,.10);
+    box-shadow:0 12px 28px rgba(0,0,0,.10);
 
     transition:.35s ease;
 
@@ -1307,7 +1322,7 @@ button{
 
     transform:scale(1.15);
 
-    background:#FFD700;
+    background:#D4AF37;
 }
 .video-modal-content{
 
@@ -1364,7 +1379,7 @@ button{
 
 .sponsors{
 
-    padding:100px 24px;
+    padding:90px 24px;
 
     background:#F8F9FC;
 
@@ -1386,21 +1401,26 @@ button{
 
 .sponsor-group{
 
-    margin-top:60px;
+    margin-top:70px;
 
 }
 
 .sponsor-group h3{
 
-    font-size:22px;
+    font-size:24px;
 
     color:#0B1F3A;
 
-    margin-bottom:30px;
+    letter-spacing:.5px;
+
+    margin-bottom:35px;
 
     font-weight:600;
 
 }
+
+
+
 .title-sponsor{
 
     display:flex;
@@ -1413,11 +1433,34 @@ button{
 
 .sponsor-card.large{
 
-    width:400px;
+    width:480px;
 
-    min-height:210px;
+    height:155px;
 
 }
+
+/* === PERSONAL SPONSOR === */
+
+.sponsor-Personal{
+
+    margin-top:70px;
+
+}
+
+.sponsor-Personal h3{
+
+    font-size:24px;
+
+    color:#0B1F3A;
+
+    letter-spacing:.5px;
+
+    margin-bottom:35px;
+
+    font-weight:600;
+
+}
+
 .sponsor-grid{
 
     max-width:950px;
@@ -1428,18 +1471,19 @@ button{
 
     grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
 
-    gap:24px;
+    gap:32px;
 
 }
+
 .sponsor-card{
 
     background:white;
 
-    border-radius:22px;
+    border-radius:20px;
 
-    min-height:190px;
+    min-height:120px;
 
-    padding:25px;
+    padding:20px;
 
     display:flex;
 
@@ -1454,27 +1498,104 @@ button{
 }
 .sponsor-card:hover{
 
-    transform:translateY(-8px);
+    transform:translateY(-10px) scale(1.02);
 
-    box-shadow:0 20px 45px rgba(0,0,0,.14);
+    box-shadow:0 24px 50px rgba(0,0,0,.16);
 
 }
 .sponsor-card img{
 
-    max-width:100%;
+    width:100%;
 
-    max-height:120px;
+    max-width:120px;
+
+    max-height:50px;
 
     object-fit:contain;
+
+    object-position:center;
+
+    transform:scale(1.45);
 
     transition:.35s;
 
 }
 .sponsor-card:hover img{
 
-    transform:scale(1.05);
+    transform:scale(1.35);
 
 }
+
+
+/* === PERSONAL SPONSOR CARD AND GRID === */
+
+.sponsorpersonal-grid{
+
+    max-width:950px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,minmax(100px,1fr));
+
+    gap:10px;
+
+}
+
+.personalcard-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    min-height:30px;
+
+    padding:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+
+}
+.personalcard-card:hover{
+
+    transform:translateY(-5px) scale(1);
+
+    box-shadow:0 5px 10px rgba(0,0,0,.16);
+
+}
+.sponsorpersonal-card img{
+
+    width:100%;
+
+    max-width:120px;
+
+    max-height:60px;
+
+    object-fit:contain;
+
+    object-position:center;
+
+    transform:scale(1.35);
+
+    transition:.35s;
+
+}
+.personalcard-card:hover img{
+
+    transform:scale(1.35);
+
+}
+/* --- BATAS PERSONAL SPONSOR CARD AND GRID --- */
+
 
 /* ==============================
    FOOTER
@@ -1486,7 +1607,7 @@ button{
 
     color:white;
 
-    padding:70px 24px 35px;
+    padding:60px 24px 35px;
 
     text-align:center;
 
@@ -1517,7 +1638,7 @@ button{
 
     margin-bottom:12px;
 
-    color:#FFD700;
+    color:#D4AF37;
 
 }
 
@@ -1527,12 +1648,12 @@ button{
 
     font-style:italic;
 
-    margin-bottom:35px;
+    margin-bottom:28px;
 
 }
 .footer-info{
 
-    margin-bottom:35px;
+    margin-bottom:28px;
 
     line-height:2;
 
@@ -1540,7 +1661,7 @@ button{
 
 .footer-contact{
 
-    margin-bottom:35px;
+    margin-bottom:28px;
 
     line-height:2;
 
@@ -1548,9 +1669,63 @@ button{
 
 .footer-contact h4{
 
-    color:#FFD700;
+    color:#D4AF37;
 
     margin-bottom:12px;
+
+}
+
+.footer-action{
+
+    margin-bottom:30px;
+
+}
+
+.footer-button{
+
+    display:inline-block;
+
+    padding:12px 28px;
+
+    border-radius:30px;
+
+    background:#D4AF37;
+
+    color:#081524;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+}
+
+.footer-button:hover{
+
+    background:#D4AF37;
+
+    transform:translateY(-3px);
+
+}
+
+.footer-button.secondary{
+
+    margin-left:12px;
+
+    background:transparent;
+
+    border:2px solid #D4AF37;
+
+    color:#D4AF37;
+
+}
+
+.footer-button.secondary:hover{
+
+    background:#D4AF37;
+
+    color:#081524;
 
 }
 .footer-social{
@@ -1561,7 +1736,7 @@ button{
 
     gap:18px;
 
-    margin-bottom:35px;
+    margin-bottom:28px;
 
 }
 
@@ -1620,13 +1795,13 @@ button{
 
     bottom:20px;
 
-    left:50%;
+    left:48%;
 
     transform:translateX(-50%);
 
     background:rgba(11,31,58,.92);
 
-    padding:12px 18px;
+    padding:12px 12px;
 
     border-radius:40px;
 
@@ -1671,7 +1846,7 @@ button{
 
 .floating-nav a.active{
 
-    color:#FFD700;
+    color:#D4AF37;
 
     transform:scale(1.2);
 
@@ -1747,7 +1922,7 @@ button{
 
     .about{
 
-        padding:100px 60px;
+        padding:90px 24px;
 
     }
 
@@ -1871,7 +2046,7 @@ button{
 
     width:100%;
 
-    max-width:320px;
+    max-width:240px;
 
     margin:auto;
 
@@ -1887,9 +2062,25 @@ button{
 
 .sponsor-card{
 
-    min-height:140px;
+    background:#fff;
 
-    padding:20px;
+    border:1px solid rgba(11,31,58,.06);
+
+    border-radius:20px;
+
+    min-height:210px;
+
+    padding:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 12px 28px rgba(0,0,0,.08);
+
+    transition:.35s;
 
 }
 
@@ -1951,7 +2142,7 @@ button{
 
 .play-button span{
 
-    animation:playPulse 2s infinite;
+    animation:playPulse 2.5s infinite;
 
 }
 
@@ -1971,7 +2162,7 @@ button{
 
     }
 
-    /* ---------- STATISTICS ---------- */
+    /* ---------- STATISTICS/PARTICIPANT ---------- */
 
     .counter{
 
@@ -1979,29 +2170,7 @@ button{
 
     }
 
-    /* ---------- SCHEDULE ---------- */
-
-    .schedule-item{
-
-        flex-direction:column;
-
-    }
-
-    .schedule-time{
-
-        width:100%;
-
-    }
-
-    .schedule-item::before,
-
-    .schedule-list::before{
-
-        display:none;
-
-    }
-
-    /* ---------- LOCATION ---------- */
+      /* ---------- LOCATION ---------- */
 
     .map-container{
 
@@ -2032,5 +2201,56 @@ button{
         font-size:24px;
 
     }
+
+}
+/* ==========================
+   MUSIC BUTTON
+========================== */
+
+.music-toggle{
+
+    position:fixed;
+
+    right:10px;
+
+    bottom:21px;
+
+    width:20px;
+
+    height: 20px;
+
+    padding: 20px;
+
+    border:none;
+
+    border-radius:50%;
+
+    background:rgba(11,31,58,.92);
+
+    color:#0B1F3A;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.20);
+
+    transition:.3s;
+
+    z-index:9999;
+
+}
+
+.music-toggle:hover{
+
+    transform:scale(1.10);
+
+    background:#5102c7;
 
 }

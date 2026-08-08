@@ -7,6 +7,7 @@ const ACTIVE_SECTION_OFFSET = 120;
 
 // --- AUDIO ---
 const music = document.getElementById("bgMusic");
+const musicToggle = document.getElementById("musicToggle");
 
 //--- OPENING SCREEN ---
 const enterButton = document.getElementById("enterInvitation");
@@ -47,13 +48,122 @@ const videoFrame = document.getElementById("videoFrame");
 const closeVideo = document.querySelector(".close-video");
 
 // ==========================================
+// MUSIC CONTROL
+// ==========================================
+
+musicToggle.addEventListener("click", function(){
+
+    console.log("paused =", music.paused);
+    console.log("currentTime =", music.currentTime);
+
+    if (music.paused){
+
+        console.log("PLAY");
+
+        music.play();
+
+    }else{
+
+        console.log("PAUSE");
+
+        music.pause();
+
+        setTimeout(function(){
+
+            console.log("SETELAH PAUSE =", music.paused);
+
+        },500);
+
+    }
+
+});
+
+// ===================================================================
+// TAMBAHAN: MATIKAN MUSIK KETIKA HALAMAN BERPINDAH KE APLIKASI LAIN
+// ===================================================================
+
+document.addEventListener("visibilitychange", function () {
+
+    if (document.hidden) {
+
+        // Halaman masuk background
+        if (music && !music.paused) {
+            music.pause();
+        }
+
+    } else {
+
+        // Halaman kembali terlihat
+        if (music && music.paused) {
+            music.play().catch(() => {
+                console.log("Autoplay diblokir browser.");
+            });
+        }
+
+    }
+
+});
+
+// ========================================================
+// TAMBAHAN: MATIKAN MUSIK UTAMA SAAT SEMUA VIDEO YOUTUBE DIKLIK
+// ========================================================
+
+const semuaVideo = document.querySelectorAll('.video-thumbnail');
+
+semuaVideo.forEach(function(videoTunggal) {
+
+    videoTunggal.addEventListener("click", function() {
+
+        console.log(
+            "Salah satu video YouTube diklik, mematikan lagu pembuka..."
+        );
+
+        // Hentikan lagu pembuka
+        music.pause();
+
+    });
+
+});
+
+
+music.addEventListener("play", function(){
+
+    musicToggle.textContent = "🔊";
+
+});
+
+
+music.addEventListener("pause", function(){
+
+    musicToggle.textContent = "🔇";
+
+});
+
+// ==========================================
 // OPENING SCREEN
 // ==========================================
+
 if (enterButton && openingScreen) {
+
     enterButton.addEventListener("click", function () {
-        if (music) {music.play();}
+
+        if (music) {
+
+            music.play();
+
+        }
+
+        if (musicToggle) {
+
+            musicToggle.style.display = "flex";
+            musicToggle.textContent = "🔊";
+
+        }
+
         openingScreen.style.display = "none";
+
     });
+
 }
 
 // ==========================================
@@ -489,5 +599,6 @@ if (videoModal) {
     });
 
 }
+console.log("SCRIPT SELESAI DIEKSEKUSI");
 
 
