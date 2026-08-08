@@ -8,6 +8,7 @@ const ACTIVE_SECTION_OFFSET = 120;
 // --- AUDIO ---
 const music = document.getElementById("bgMusic");
 const musicToggle = document.getElementById("musicToggle");
+let invitationStarted = false;
 
 //--- OPENING SCREEN ---
 const enterButton = document.getElementById("enterInvitation");
@@ -79,26 +80,93 @@ musicToggle.addEventListener("click", function(){
 });
 
 // ===================================================================
-// TAMBAHAN: MATIKAN MUSIK KETIKA HALAMAN BERPINDAH KE APLIKASI LAIN
+// MUSIC VISIBILITY CONTROL
 // ===================================================================
+
+let musicWasPlayingBeforeHidden = false;
 
 document.addEventListener("visibilitychange", function () {
 
+    console.log("=================================");
+    console.log("VISIBILITY CHANGE");
+    console.log("document.hidden =", document.hidden);
+    console.log("invitationStarted =", invitationStarted);
+    console.log("music.paused =", music ? music.paused : "music tidak ada");
+    console.log("music.currentTime =", music ? music.currentTime : "music tidak ada");
+    console.log("=================================");
+
     if (document.hidden) {
 
-        // Halaman masuk background
+        // Simpan kondisi musik sebelum halaman masuk background
         if (music && !music.paused) {
+
+            musicWasPlayingBeforeHidden = true;
+
+            console.log("BACKGROUND → Musik sedang PLAY");
+            console.log("BACKGROUND → Pause Lagu 1");
+
             music.pause();
+
+        } else {
+
+            musicWasPlayingBeforeHidden = false;
+
+            console.log("BACKGROUND → Musik sudah PAUSE");
+
         }
 
     } else {
 
-        // Halaman kembali terlihat
-        if (music && music.paused) {
-            music.play().catch(() => {
-                console.log("Autoplay diblokir browser.");
-            });
+        console.log("KEMBALI KE HALAMAN");
+        console.log(
+            "musicWasPlayingBeforeHidden =",
+            musicWasPlayingBeforeHidden
+        );
+
+        if (
+            invitationStarted &&
+            musicWasPlayingBeforeHidden &&
+            music
+        ) {
+
+            console.log("PERINTAH → RESUME LAGU 1");
+
+            music.play()
+                .then(function () {
+
+                    console.log(
+                        "Lagu 1 RESUME BERHASIL"
+                    );
+
+                })
+                .catch(function (error) {
+
+                    console.log(
+                        "Lagu 1 RESUME GAGAL:",
+                        error
+                    );
+
+                });
+
+        } else {
+
+            console.log(
+                "Lagu 1 TIDAK RESUME"
+            );
+
+            console.log(
+                "invitationStarted =",
+                invitationStarted
+            );
+
+            console.log(
+                "musicWasPlayingBeforeHidden =",
+                musicWasPlayingBeforeHidden
+            );
+
         }
+
+        musicWasPlayingBeforeHidden = false;
 
     }
 
@@ -146,6 +214,8 @@ music.addEventListener("pause", function(){
 if (enterButton && openingScreen) {
 
     enterButton.addEventListener("click", function () {
+
+        invitationStarted = true;// ← MENGUBAH NILAI
 
         if (music) {
 
