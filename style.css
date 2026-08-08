@@ -2225,7 +2225,7 @@ button{
 
     border-radius:50%;
 
-    background:rgba(11,31,58,.92);
+    background:rgba(88, 113, 146, 0.92);
 
     color:#0B1F3A;
 
@@ -2251,6 +2251,235 @@ button{
 
     transform:scale(1.10);
 
-    background:#5102c7;
+    background:#737f8d;
+
+}
+
+/* =========================================================
+   REGISTRATION FORM MODAL
+   ========================================================= */
+
+.registration-modal {
+
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.72);
+
+    z-index: 10000;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+}
+
+
+/* =========================================================
+   MODAL CONTENT
+   ========================================================= */
+
+.registration-modal-content {
+
+    position: relative;
+
+    width: 100%;
+    max-width: 850px;
+
+    height: 90vh;
+
+    background: #ffffff;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+/* =========================================================
+   CLOSE BUTTON
+   ========================================================= */
+
+.close-registration {
+
+    position: absolute;
+
+    top: 12px;
+    right: 15px;
+
+    width: 40px;
+    height: 40px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: rgba(11, 31, 58, 0.92);
+
+    color: white;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 5;
+
+    transition: 0.3s;
+
+}
+
+
+.close-registration:hover {
+
+    transform: scale(1.08);
+
+}
+
+
+/* =========================================================
+   MODAL HEADER
+   ========================================================= */
+
+.registration-modal-header {
+
+    flex-shrink: 0;
+
+    text-align: center;
+
+    padding: 20px 55px 15px;
+
+    background: #ffffff;
+
+}
+
+
+.registration-modal-header h2 {
+
+    margin: 0;
+
+    font-size: 22px;
+
+    color: #0B1F3A;
+
+}
+
+
+.registration-modal-header p {
+
+    margin: 6px 0 0;
+
+    font-size: 14px;
+
+    color: #666;
+
+}
+
+
+/* =========================================================
+   GOOGLE FORM CONTAINER
+   ========================================================= */
+
+.registration-form-container {
+
+    flex: 1;
+
+    width: 100%;
+
+    overflow: hidden;
+
+}
+
+
+.registration-form-container iframe {
+
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+    display: block;
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .registration-modal {
+
+        padding: 10px;
+
+    }
+
+
+    .registration-modal-content {
+
+        height: 94vh;
+
+        border-radius: 16px;
+
+    }
+
+
+    .registration-modal-header {
+
+        padding: 18px 50px 12px 20px;
+
+    }
+
+
+    .registration-modal-header h2 {
+
+        font-size: 18px;
+
+    }
+
+
+    .registration-modal-header p {
+
+        font-size: 13px;
+
+    }
+
+
+    .close-registration {
+
+        top: 10px;
+        right: 10px;
+
+        width: 36px;
+        height: 36px;
+
+        font-size: 18px;
+
+    }
 
 }
