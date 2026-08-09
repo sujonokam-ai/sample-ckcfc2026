@@ -778,7 +778,7 @@ function updateCountdown() {
 
     if (distance <= 0) {
 
-        clearInterval(counterTimer);
+        clearInterval(Timer);
 
         daysElement.textContent = "00";
         hoursElement.textContent = "00";
@@ -1080,7 +1080,7 @@ if (closeVideo) {
 
     });
 
-}
+}s
 
 if (videoModal) {
 
@@ -1095,6 +1095,6 @@ if (videoModal) {
     });
 
 }
-console.log("SCRIPT SELESAI DIEKSEKUSI");
+
 
 

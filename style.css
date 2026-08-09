@@ -204,7 +204,7 @@ button{
 .info-area{
     font-size:clamp(25px,2.5vw,20px);
     color:#f3f3f2;
-    font-style:BOLD;
+    font-weight:bold;
     margin-bottom:10px;
     line-height:1.2;
 }
@@ -501,7 +501,7 @@ button{
 
     background:white;
 
-    padding:35px
+    padding:35px;
 
     border-radius:20px;
 
@@ -1146,27 +1146,6 @@ button{
 
 }
 
-.video-wrapper{
-
-    position:relative;
-
-    width:100%;
-
-    aspect-ratio:16/9;
-
-    overflow:hidden;
-
-}
-
-.video-wrapper iframe{
-
-    width:100%;
-
-    height:100%;
-
-    border:0;
-
-}
 
 .highlight-card h3{
 
@@ -1341,8 +1320,6 @@ button{
     transform:scale(.92);
 
     transition:.35s ease;
-
-    transform:scale(1);
 
 }
 
@@ -1578,7 +1555,7 @@ button{
     box-shadow:0 5px 10px rgba(0,0,0,.16);
 
 }
-.sponsorpersonal-card img{
+.personal-card img{
 
     width:100%;
 
@@ -1681,59 +1658,6 @@ button{
 
 }
 
-.footer-action{
-
-    margin-bottom:30px;
-
-}
-
-.footer-button{
-
-    display:inline-block;
-
-    padding:12px 28px;
-
-    border-radius:30px;
-
-    background:#D4AF37;
-
-    color:#081524;
-
-    font-weight:700;
-
-    text-decoration:none;
-
-    transition:.3s;
-
-}
-
-.footer-button:hover{
-
-    background:#D4AF37;
-
-    transform:translateY(-3px);
-
-}
-
-.footer-button.secondary{
-
-    margin-left:12px;
-
-    background:transparent;
-
-    border:2px solid #D4AF37;
-
-    color:#D4AF37;
-
-}
-
-.footer-button.secondary:hover{
-
-    background:#D4AF37;
-
-    color:#081524;
-
-}
 .footer-social{
 
     display:flex;
@@ -2168,15 +2092,7 @@ button{
 
     }
 
-    /* ---------- STATISTICS/PARTICIPANT ---------- */
-
-    .counter{
-
-        font-size:40px;
-
-    }
-
-      /* ---------- LOCATION ---------- */
+    /* ---------- LOCATION ---------- */
 
     .map-container{
 
