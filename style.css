@@ -479,32 +479,37 @@ button{
 
     color:#0B1F3A;
 
-    margin-bottom:50px;
+    margin-bottom:30px;
 
+    text-align:center;
 }
 
 .category-grid{
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    grid-template-columns:repeat(3,minmax(0,1fr));
 
-    gap:30px;
+    gap:20px;
 
+    max-width:1100px;
+
+    margin:0 auto;
 }
 
 .category-card{
 
     background:white;
 
-    padding:35px;
+    padding:25px 22px;
 
-    border-radius:20px;
+    border-radius:18px;
 
-    box-shadow:0 12px 28px rgba(0,0,0,.08);
+    box-shadow:0 10px 24px rgba(0,0,0,.08);
 
     transition:.35s;
 
+    text-align:center;
 }
 
 .category-card:hover{
@@ -517,10 +522,9 @@ button{
 
 .category-icon{
 
-    font-size:52px;
+    font-size:40px;
 
-    margin-bottom:20px;
-
+    margin-bottom:14px;
 }
 
 .category-card h3{
@@ -538,6 +542,8 @@ button{
     line-height:1.7;
 
 }
+
+
 /* ==============================
    TOURNAMENT REGISTRATION STATUS
 ================================ */
@@ -2479,6 +2485,20 @@ button{
         height: 36px;
 
         font-size: 18px;
+
+    }
+
+}
+/* ===========================================================
+   CATEGORY RESPONSIVE khusus 3 Category Tambahan HP 768px
+=========================================================== */
+@media (max-width: 768px) {
+
+    .category-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 18px;
 
     }
 
