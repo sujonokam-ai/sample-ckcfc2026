@@ -83,7 +83,6 @@ musicToggle.addEventListener("click", function(){
         return;
     }
 
-
     // ============================================================
     // MODE NORMAL
     // TOGGLE MENGONTROL LAGU 1
@@ -767,7 +766,7 @@ function formatNumber(number) {
     return String(number).padStart(2, "0");
 }
 
-const targetDate = new Date("2026-10-22T07:00:00");
+const targetDate = new Date("2026-09-30T07:00:00");
 
 let timer;
 
@@ -874,63 +873,6 @@ counters.forEach(function(counter){
 });
 
 // ==========================
-// GUIDE SWIPER
-// ==========================
-
-const guideSwiper = new Swiper(".guideSwiper",{
-
-    loop: false,
-
-    speed: 700,
-
-    grabCursor: true,
-
-    centeredSlides: true,
-
-    slidesPerView: 1.2,
-
-    spaceBetween: 20,
-
-    effect: "coverflow",
-
-    coverflowEffect: {
-
-        rotate: 20,
-
-        stretch: 0,
-
-        depth: 120,
-
-        modifier: 1,
-
-        slideShadows: false,
-
-        scale: 0.9
-
-    },
-
-    pagination: {
-    el: ".guide .swiper-pagination",
-    clickable: true,
-},
-
-    navigation: {
-    nextEl: ".guide .swiper-button-next",
-    prevEl: ".guide .swiper-button-prev",
-},
-
-    breakpoints: {
-
-        768: {
-
-            slidesPerView: 2.2
-
-        }
-
-    }
-
-});
-// ==========================
 // HISTORY SWIPER
 // ==========================
 const historySwiper = new Swiper(".historySwiper", {
@@ -1015,8 +957,22 @@ function enableLightbox(swiper){
 
 }
 
+// ==========================
+// GUIDE LIGHTBOX
+// ==========================
+
+function openGuideLightbox(guideNumber) {
+
+    const guideImage =
+        `images/guide/guide${guideNumber}.jpg`;
+
+    lightboxImage.src = guideImage;
+
+    lightbox.style.display = "flex";
+
+}
+
 enableLightbox(historySwiper);
-enableLightbox(guideSwiper);
 
 if (closeLightbox) {
 
@@ -1041,6 +997,26 @@ if (lightbox) {
     });
 
 }
+
+// ==========================
+// GUIDE MENU
+// ==========================
+
+const guideMenuButtons =
+    document.querySelectorAll(".guide-menu-button");
+
+guideMenuButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        const guideNumber =
+            this.dataset.guide;
+
+        openGuideLightbox(guideNumber);
+
+    });
+
+});
 
 // ==========================
 // VIDEO MODAL
@@ -1080,7 +1056,7 @@ if (closeVideo) {
 
     });
 
-}s
+}
 
 if (videoModal) {
 
@@ -1096,5 +1072,277 @@ if (videoModal) {
 
 }
 
+/* =====================================================
+   CKC REGISTRATION QUOTA
+   Source: Google Apps Script Web App
+===================================================== */
 
+const CKC_QUOTA_API =
+    "https://script.google.com/macros/s/AKfycbwq7trLWjvUDd_ld0i_rNmZyt0fvlFbiP4wT-Pw0TC5RjLXCCkUwrGnc8hJCoPO6rMG/exec";
+
+
+function loadRegistrationQuota() {
+
+    const callbackName =
+        "ckcQuotaCallback_" + Date.now();
+
+    window[callbackName] = function (data) {
+
+        try {
+
+            if (!data || !data.success) {
+                console.error("CKC Quota API gagal.");
+                return;
+            }
+
+            const quotas =
+                data.quotas || {};
+
+            const registered =
+                data.registered || {};
+
+            const cards =
+                document.querySelectorAll(
+                    "#registration-status .quota-card"
+                );
+
+            cards.forEach(function (card) {
+
+                const title =
+                    card.querySelector("h3");
+
+                if (!title) return;
+
+                const titleText =
+                    title.textContent
+                        .replace(/[^\x00-\x7F]/g, "")
+                        .trim()
+                        .toUpperCase();
+
+
+                let quota = 0;
+                let jumlahPeserta = 0;
+
+
+                /* DIVISI A */
+                if (
+                    titleText.includes("DIVISI A")
+                ) {
+
+                    quota =
+                        Number(
+                            quotas["Exhibition By TKC"] || 0
+                        );
+
+                    jumlahPeserta =
+                        Number(
+                            registered["DIVISI A"] || 0
+                        ) +
+                        Number(
+                            registered["Divisi A - Utama"] || 0
+                        );
+
+                }
+
+
+                /* DIVISI B */
+                else if (
+                    titleText.includes("DIVISI B")
+                ) {
+
+                    quota =
+                        Number(
+                            quotas["Divisi B - Senior"] || 0
+                        );
+
+                    jumlahPeserta =
+                        Number(
+                            registered["Divisi B - Senior"] || 0
+                        );
+
+                }
+
+
+                /* DIVISI C */
+                else if (
+                    titleText.includes("DIVISI C")
+                ) {
+
+                    quota =
+                        Number(
+                            quotas["Divisi C - Junior"] || 0
+                        );
+
+                    jumlahPeserta =
+                        Number(
+                            registered["Divisi C - Junior"] || 0
+                        );
+
+                }
+
+
+                const remaining =
+                    Math.max(
+                        quota - jumlahPeserta,
+                        0
+                    );
+
+
+                const registeredElement =
+                    card.querySelector(".registered");
+
+                const quotaElement =
+                    card.querySelector(".quota");
+
+                const progressFill =
+                    card.querySelector(".progress-fill");
+
+                const statusElement =
+                    card.querySelector(".quota-status");
+
+                const remainingElement =
+                    card.querySelector("small");
+
+
+                if (registeredElement) {
+                    registeredElement.textContent =
+                        jumlahPeserta;
+                }
+
+
+                if (quotaElement) {
+                    quotaElement.textContent =
+                        quota;
+                }
+
+
+                if (progressFill) {
+
+                    const percentage =
+                        quota > 0
+                            ? Math.min(
+                                (jumlahPeserta / quota) * 100,
+                                100
+                              )
+                            : 0;
+
+                    progressFill.style.width =
+                        percentage + "%";
+
+                }
+
+
+                if (statusElement) {
+
+                    statusElement.className =
+                        "quota-status";
+
+                    if (remaining <= 0) {
+
+                        statusElement.classList.add("full");
+                        statusElement.textContent =
+                            "🔴 Registration Closed";
+
+                    }
+
+                    else if (
+                        quota > 0 &&
+                        remaining <= Math.ceil(quota * 0.10)
+                    ) {
+
+                        statusElement.classList.add("almost");
+                        statusElement.textContent =
+                            "🟡 Almost Full";
+
+                    }
+
+                    else {
+
+                        statusElement.classList.add("open");
+                        statusElement.textContent =
+                            "🟢 Registration Open";
+
+                    }
+
+                }
+
+
+                if (remainingElement) {
+
+                    remainingElement.textContent =
+                        "Remaining " +
+                        remaining +
+                        " Slots";
+
+                }
+
+            });
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "CKC Quota Error:",
+                error
+            );
+
+        }
+
+
+        delete window[callbackName];
+
+        const script =
+            document.getElementById(callbackName);
+
+        if (script) {
+            script.remove();
+        }
+
+    };
+
+
+    const script =
+        document.createElement("script");
+
+    script.id = callbackName;
+
+    script.src =
+        CKC_QUOTA_API +
+        "?api=quota&prefix=" +
+        callbackName;
+
+    script.onerror = function () {
+
+        console.error(
+            "CKC Quota API tidak dapat diakses."
+        );
+
+        delete window[callbackName];
+
+        script.remove();
+
+    };
+
+
+    document.body.appendChild(script);
+
+}
+
+
+/* Load quota after page is ready */
+
+if (document.readyState === "loading") {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        loadRegistrationQuota
+    );
+
+}
+else {
+
+    loadRegistrationQuota();
+
+}
 
