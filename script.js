@@ -1101,6 +1101,63 @@ function loadRegistrationQuota() {
             const registered =
                 data.registered || {};
 
+            const latestParticipants =
+    data.latestParticipants || [];
+
+const latestContainer =
+    document.getElementById(
+        "latest-participants-list"
+    );
+
+if (latestContainer) {
+
+    latestContainer.innerHTML = "";
+
+    if (latestParticipants.length === 0) {
+
+        latestContainer.innerHTML =
+            "<p class=\"latest-empty\">" +
+            "Belum ada pendaftar." +
+            "</p>";
+
+    }
+    else {
+
+        latestParticipants.forEach(
+            function (participant) {
+
+                const item =
+                    document.createElement("div");
+
+                item.className =
+                    "latest-participant-item";
+
+                const name =
+                    document.createElement("strong");
+
+                name.textContent =
+                    participant.nama || "-";
+
+                const info =
+                    document.createElement("small");
+
+                info.textContent =
+                    participant.noReg +
+                    " • " +
+                    participant.kategori;
+
+                item.appendChild(name);
+                item.appendChild(info);
+
+                latestContainer.appendChild(item);
+
+            }
+        );
+
+    }
+
+}
+
             const cards =
                 document.querySelectorAll(
                     "#registration-status .quota-card"
@@ -1131,16 +1188,13 @@ function loadRegistrationQuota() {
 
                     quota =
                         Number(
-                            quotas["Exhibition By TKC"] || 0
+                            quotas["Divisi A - Antar Club"] || 0
                         );
 
                     jumlahPeserta =
                         Number(
-                            registered["DIVISI A"] || 0
-                        ) +
-                        Number(
-                            registered["Divisi A - Utama"] || 0
-                        );
+                            registered["Divisi A - Antar Club"] || 0
+                        )
 
                 }
 

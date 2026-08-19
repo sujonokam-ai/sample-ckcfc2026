@@ -725,6 +725,142 @@ button{
 
 }
 
+/* ==============================
+   LATEST REGISTERED PARTICIPANTS
+================================ */
+
+.latest-participants{
+
+    padding:90px 24px;
+
+    background:#F5F7FA;
+
+    text-align:center;
+
+}
+
+.latest-participants h2{
+
+    font-size:28px;
+
+    color:#0B1F3A;
+
+    margin-bottom:20px;
+
+}
+
+.latest-participants .section-description{
+
+    margin-bottom:50px;
+
+}
+
+#latest-participants-list{
+
+    max-width:900px;
+
+    margin:0 auto;
+
+    display:grid;
+
+    gap:20px;
+
+}
+
+.latest-participant-item{
+
+    background:white;
+
+    border-radius:24px;
+
+    padding:24px 30px;
+
+    box-shadow:0 15px 28px rgba(0,0,0,.08);
+
+    text-align:left;
+
+    transition:.3s;
+
+}
+
+.latest-participant-item:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.latest-participant-item strong{
+
+    display:block;
+
+    font-size:21px;
+
+    color:#0B1F3A;
+
+    margin-bottom:8px;
+
+}
+
+.latest-participant-item small{
+
+    display:block;
+
+    color:#666;
+
+    font-size:15px;
+
+    line-height:1.5;
+
+}
+
+.latest-empty,
+.latest-loading{
+
+    color:#666;
+
+    font-size:16px;
+
+}
+
+/* =====================================================
+   LATEST REGISTERED PARTICIPANTS
+===================================================== */
+
+#latest-participants-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.latest-participant-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: #f8f9fb;
+    border: 1px solid #e2e5ea;
+}
+
+.latest-participant-item strong {
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+.latest-participant-item small {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #666;
+}
+
+.latest-empty,
+.latest-loading {
+    margin: 20px 0;
+    text-align: center;
+    color: #777;
+}
+
 /* ==========================
    REGISTRATION
 ========================== */
