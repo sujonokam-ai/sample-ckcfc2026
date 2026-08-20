@@ -1138,6 +1138,15 @@ if (latestContainer) {
                 name.textContent =
                     participant.nama || "-";
 
+                const club =
+                    document.createElement("span");
+
+                    club.className =
+                        "latest-participant-club";
+
+                    club.textContent =
+                        participant.club || "-";
+
                 const info =
                     document.createElement("small");
 
@@ -1147,6 +1156,7 @@ if (latestContainer) {
                     participant.kategori;
 
                 item.appendChild(name);
+                item.appendChild(club);
                 item.appendChild(info);
 
                 latestContainer.appendChild(item);
