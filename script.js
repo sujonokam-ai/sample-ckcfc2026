@@ -437,7 +437,9 @@ if (enterButton && openingScreen) {
 
         }
 
-        openingScreen.style.display = "none";
+       openingScreen.style.display = "none";
+
+        loadRunningNews();
 
     });
 
@@ -766,7 +768,7 @@ function formatNumber(number) {
     return String(number).padStart(2, "0");
 }
 
-const targetDate = new Date("2026-09-30T07:00:00");
+const targetDate = new Date("2026-09-16T07:00:00");
 
 let timer;
 
@@ -1080,6 +1082,97 @@ if (videoModal) {
 const CKC_QUOTA_API =
     "https://script.google.com/macros/s/AKfycbwq7trLWjvUDd_ld0i_rNmZyt0fvlFbiP4wT-Pw0TC5RjLXCCkUwrGnc8hJCoPO6rMG/exec";
 
+const CKC_NEWS_API =
+    "https://script.google.com/macros/s/AKfycbz0v2-PQejy_3nnI8_51OLqXnJCHghv2gxU2_6q7Ls9FYIRyk2mn-HX0tArgiocQtGj/exec";
+
+    async function loadRunningNews() {
+
+    try {
+
+        const response =
+            await fetch(
+                CKC_NEWS_API + "?api=news"
+            );
+
+        if (!response.ok) {
+            throw new Error(
+                "News API HTTP " +
+                response.status
+            );
+        }
+
+        const result =
+            await response.json();
+
+        if (
+            !result.success ||
+            !Array.isArray(result.news)
+        ) {
+            throw new Error(
+                "Format News API tidak valid."
+            );
+        }
+
+        const runningNews =
+            document.getElementById("runningNews");
+
+        const runningNewsTrack =
+            document.getElementById("runningNewsTrack");
+
+        if (!runningNews || !runningNewsTrack) {
+            return result.news;
+        }
+
+        if (result.news.length === 0) {
+
+    runningNews.hidden = true;
+
+    return [];
+}
+
+    runningNewsTrack.innerHTML =
+    result.news
+        .map(function(item) {
+
+            const blink =
+                item.blink === true;
+
+            if (blink) {
+
+                return (
+                    '<span class="news-blink">' +
+                    item.message +
+                    '</span>'
+                );
+
+            }
+
+            return item.message;
+
+        })
+        .join("   •   ");
+
+    runningNews.hidden = false;
+
+        console.log(
+            "CKC Running News:",
+            result.news
+        );
+
+        return result.news;
+
+    } catch (error) {
+
+        console.error(
+            "CKC News API gagal:",
+            error
+        );
+
+        return [];
+
+    }
+
+}
 
 function loadRegistrationQuota() {
 

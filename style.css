@@ -2847,3 +2847,60 @@ button{
     margin:0 auto 42px auto !important;
 }
 
+/* =====================================================
+   RUNNING NEWS
+===================================================== */
+
+.running-news {
+    position: fixed;
+    top: 4px;
+    left: 6px;
+    right: 6px;
+    width: auto;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.68);
+    color: #ffd700;
+    white-space: nowrap;
+    box-sizing: border-box;
+    padding: 3px 0;
+    border-radius: 5px;
+    z-index: 1000;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
+}
+
+.running-news-track {
+    display: inline-block;
+    padding-left: 100%;
+    animation: runningNewsMove 20s linear infinite;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.news-blink {
+    display: inline-block;
+    animation: newsTextBlink 1.4s ease-in-out infinite;
+}
+
+@keyframes newsTextBlink {
+
+    0%, 100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.55;
+    }
+
+}
+
+@keyframes runningNewsMove {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+
+}
