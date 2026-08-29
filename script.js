@@ -1083,8 +1083,8 @@ const CKC_QUOTA_API =
     "https://script.google.com/macros/s/AKfycbwq7trLWjvUDd_ld0i_rNmZyt0fvlFbiP4wT-Pw0TC5RjLXCCkUwrGnc8hJCoPO6rMG/exec";
 
 const CKC_NEWS_API =
-    "https://script.google.com/macros/s/AKfycbz0v2-PQejy_3nnI8_51OLqXnJCHghv2gxU2_6q7Ls9FYIRyk2mn-HX0tArgiocQtGj/exec";
-
+    "https://script.google.com/macros/s/AKfycbwq7trLWjvUDd_ld0i_rNmZyt0fvlFbiP4wT-Pw0TC5RjLXCCkUwrGnc8hJCoPO6rMG/exec";
+    
     async function loadRunningNews() {
 
     try {
