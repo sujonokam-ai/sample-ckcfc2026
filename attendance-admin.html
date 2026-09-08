@@ -1,0 +1,339 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>CKC Attendance Admin</title>
+
+  <script src="https://unpkg.com/html5-qrcode"></script>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+    }
+
+    .header {
+      background: linear-gradient(
+        135deg,
+        #1e3a8a,
+        #2563eb
+      );
+      color: white;
+      padding: 20px;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .header p {
+      margin: 5px 0 0;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 0 16px;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns:
+        repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .summary-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid #e2e8f0;
+      box-shadow:
+        0 3px 12px rgba(15,23,42,.06);
+    }
+
+    .summary-number {
+      font-size: 32px;
+      font-weight: bold;
+    }
+
+    .summary-label {
+      margin-top: 5px;
+      font-size: 12px;
+      color: #64748b;
+      font-weight: bold;
+    }
+
+    .scanner-section {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 18px;
+    }
+
+    .scanner-section h2 {
+      margin-top: 0;
+      color: #1e3a8a;
+    }
+
+    #reader {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    #attendanceResult {
+      margin-top: 15px;
+      padding: 14px;
+      min-height: 50px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 10px;
+      background: #f8fafc;
+    }
+
+    .participant-section {
+      background: white;
+      border-radius: 14px;
+      padding: 20px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .participant-section h2 {
+      margin-top: 0;
+      color: #1e3a8a;
+    }
+
+    #participantDisplay {
+      min-height: 100px;
+      padding: 15px;
+      background: #f8fafc;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 700px) {
+
+      .summary {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <header class="header">
+
+    <h1>CKC FRIENDSHIP CUP 2026</h1>
+
+    <p>ATTENDANCE CONTROL</p>
+
+  </header>
+
+  <main class="container">
+
+    <section class="summary">
+
+      <div class="summary-card">
+        <div
+          id="totalRegistered"
+          class="summary-number">
+          -
+        </div>
+        <div class="summary-label">
+          TOTAL PESERTA
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <div
+          id="totalAttended"
+          class="summary-number">
+          -
+        </div>
+        <div class="summary-label">
+          SUDAH ABSEN
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <div
+          id="totalRemaining"
+          class="summary-number">
+          -
+        </div>
+        <div class="summary-label">
+          BELUM ABSEN
+        </div>
+      </div>
+
+      <div class="summary-card">
+        <div
+          id="attendanceToday"
+          class="summary-number">
+          -
+        </div>
+        <div class="summary-label">
+          ABSEN HARI INI
+        </div>
+      </div>
+
+    </section>
+
+    <section class="scanner-section">
+
+      <h2>SCAN ABSENSI</h2>
+
+      <div id="reader"></div>
+
+      <div id="attendanceResult">
+        Arahkan kamera ke QR Badge peserta.
+      </div>
+
+    </section>
+
+    <section class="participant-section">
+
+      <h2>DATA PESERTA TERAKHIR</h2>
+
+      <div id="participantDisplay">
+        Belum ada hasil scan.
+      </div>
+
+    </section>
+
+  </main>
+
+  <script>
+
+    let attendanceScanner = null;
+    let attendanceScanLocked = false;
+
+    function showResult(message) {
+
+      const el =
+        document.getElementById(
+          "attendanceResult"
+        );
+
+      if (el) {
+        el.textContent = message;
+      }
+
+    }
+
+    function showParticipant(message) {
+
+      const el =
+        document.getElementById(
+          "participantDisplay"
+        );
+
+      if (el) {
+        el.innerHTML = message;
+      }
+
+    }
+
+    async function startAttendanceScanner() {
+
+      attendanceScanner =
+        new Html5Qrcode("reader");
+
+      try {
+
+        await attendanceScanner.start(
+          {
+            facingMode: "environment"
+          },
+          {
+            fps: 10,
+            qrbox: {
+              width: 250,
+              height: 250
+            }
+          },
+          function(decodedText) {
+
+            if (attendanceScanLocked) {
+              return;
+            }
+
+            attendanceScanLocked = true;
+
+            const qrValue =
+              String(decodedText).trim();
+
+            console.log(
+              "QR ABSENSI:",
+              qrValue
+            );
+
+            showResult(
+              "QR terbaca. Memproses absensi..."
+            );
+
+            /*
+             * KONEKSI KE BACKEND
+             * akan kita pasang pada STEP berikutnya.
+             */
+
+            showParticipant(
+              "<strong>QR:</strong> " +
+              qrValue +
+              "<br><br>" +
+              "Menunggu koneksi backend absensi..."
+            );
+
+          },
+          function() {
+            // QR belum terbaca
+          }
+        );
+
+      } catch (error) {
+
+        console.error(
+          "KAMERA ABSENSI GAGAL:",
+          error
+        );
+
+        showResult(
+          "Kamera tidak dapat digunakan. " +
+          "Pastikan izin kamera diberikan."
+        );
+
+      }
+
+    }
+
+    startAttendanceScanner();
+
+  </script>
+
+</body>
+
+</html>
