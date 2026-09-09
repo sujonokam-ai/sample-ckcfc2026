@@ -768,7 +768,7 @@ function formatNumber(number) {
     return String(number).padStart(2, "0");
 }
 
-const targetDate = new Date("2026-09-16T07:00:00");
+const targetDate = new Date("2026-10-22T07:00:00");
 
 let timer;
 
