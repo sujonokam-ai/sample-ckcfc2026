@@ -22,5 +22,20 @@
       "type": "image/png",
       "purpose": "any"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "./images/pwa/pwa-desktop.png",
+      "sizes": "1917x1078",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "CKC Friendship Cup 2026 - Desktop"
+    },
+    {
+      "src": "./images/pwa/pwa-mobile.png",
+      "sizes": "810x1800",
+      "type": "image/png",
+      "label": "CKC Friendship Cup 2026 - Mobile"
+    }
   ]
 }
