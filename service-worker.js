@@ -51,6 +51,9 @@ self.addEventListener("fetch", event => {
   const base = new URL("./", self.registration.scope);
   if (!url.pathname.startsWith(base.pathname)) return;
 
+  // Audio: biarkan browser mengambil langsung dari jaringan.
+  if (url.pathname.startsWith(new URL("audio/", base).pathname)) return;
+
   if (request.mode === "navigate") {
     event.respondWith((async () => {
       try {
